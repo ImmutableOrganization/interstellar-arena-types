@@ -1,0 +1,8 @@
+{
+  "name": "interstellar-arena-types",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ImmutableOrganization/interstellar-arena-types.git",
+  "author": "immutable-dev <immutable-org@protonmail.com>",
+  "license": "MIT"
+}
