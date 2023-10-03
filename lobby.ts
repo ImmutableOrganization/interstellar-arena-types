@@ -1,4 +1,4 @@
-import { Player } from "./gameObjects";
+import { Laser, Player } from "./gameObjects";
 import { GameMode, GameState } from "./gameState";
 import { mapObject } from "./map";
 
