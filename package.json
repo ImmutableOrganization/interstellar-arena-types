@@ -6,7 +6,10 @@
   "author": "immutable-dev <immutable-org@protonmail.com>",
   "license": "MIT",
   "dependencies": {
-    "three": "^0.157.0"
+    "three": "^0.157.0",
+    "tsc": "^2.0.4",
+    "typescript": "^5.2.2"
+
   },
   "devDependencies": {
     "@types/three": "^0.156.0"

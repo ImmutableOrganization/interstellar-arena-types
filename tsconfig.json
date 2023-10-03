@@ -1,0 +1,25 @@
+{
+  "swc": true,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "resolveJsonModule": true,
+    "lib": ["ES2022"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "rootDir": ".",
+    "outDir": "./dist",
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "noErrorTruncation": true
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.d.ts",
+  ],
+  "exclude": ["node_modules"]
+}
