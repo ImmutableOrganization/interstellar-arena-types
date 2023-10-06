@@ -5,10 +5,12 @@
   "repository": "git@github.com/ImmutableOrganization/interstellar-arena-types.git",
   "author": "immutable-dev <immutable-org@protonmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "type": "module",
   "dependencies": {
-    "three": "^0.157.0",
-
+    "three": "^0.157.0"
   },
   "devDependencies": {
     "@types/three": "^0.156.0",
