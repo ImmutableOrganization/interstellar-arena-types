@@ -2,7 +2,6 @@
   "swc": true,
   "compilerOptions": {
     "baseUrl": "src",
-    "resolveJsonModule": true,
     "lib": ["ES2022"],
     "module": "nodenext",
     "moduleResolution": "nodenext",

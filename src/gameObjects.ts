@@ -1,5 +1,5 @@
 import { Mesh, Vector3 } from 'three';
-import { GunOption } from 'userStats.js';
+import { GunOption } from './userStats.js';
 export type Player = {
     id: string;
     gun: GunOption;

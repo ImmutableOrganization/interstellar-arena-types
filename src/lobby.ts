@@ -1,6 +1,6 @@
-import { Player, Laser } from "gameObjects.js";
-import { GameMode, GameState } from "gameState.js";
-import { mapObject } from "map.js";
+import { Player, Laser } from "./gameObjects.js";
+import { GameMode, GameState } from "./gameState.js";
+import { mapObject } from "./map.js";
 
 export type lobby = {
     id: string;
