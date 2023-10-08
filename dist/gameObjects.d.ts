@@ -16,7 +16,7 @@ export type Player = {
     authId?: string;
     username?: string;
 };
-export declare const ObjectTypesEnum: readonly ["Player", "PowerUp", "Laser", "Wall", "Floor", "Ladder", "Tree1", "Tree2", "Rock", "Stump", "Grass"];
+export declare const ObjectTypesEnum: readonly ["Player", "PowerUp", "Laser", "Wall", "Floor", "Ladder", "Tree1", "Tree2", "Rock", "Stump", "Grass", "Zombie"];
 export type ObjectTypes = (typeof ObjectTypesEnum)[number];
 export type BaseGameObject = {
     position: [number, number, number];
