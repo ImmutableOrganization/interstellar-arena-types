@@ -25,7 +25,7 @@ export type lobby = {
       mapName: string;
       mapSky: 'purpleStars' | 'whiteStars' | 'blueSky';
     };
-    entities: Record<EntityTypes[number], Entity[]>;
+    entities: Record<EntityTypes, Entity[]>;
     lasers: Laser[];
     scoreBoard: ScoreBoard;
     hasBots: boolean;
