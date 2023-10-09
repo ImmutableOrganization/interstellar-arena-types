@@ -22,6 +22,8 @@ export const ObjectTypesEnum = ['Player', 'PowerUp', 'Laser', 'Wall', 'Floor', '
 
 export type ObjectTypes = (typeof ObjectTypesEnum)[number];
 
+export const EntityTypes = ['Zombie'] as const;
+export type EntityTypes = (typeof EntityTypes)[number];
 
 export type BaseGameObject = {
     position: [number, number, number];
