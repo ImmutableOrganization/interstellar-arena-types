@@ -6,14 +6,14 @@ export type Entity = {
     rotation: [number, number, number];
     keysPressed: Record<string, boolean>;
     dead: boolean;
-};
-export type Player = {
-    gun: GunOption;
-    cameraRotation: [number, number, number];
     model: {
         laserHitbox: Mesh;
         collisionHitbox: Mesh;
     };
+};
+export type Player = {
+    gun: GunOption;
+    cameraRotation: [number, number, number];
     team?: 'green' | 'blue';
     authId?: string;
     username?: string;
