@@ -1,4 +1,4 @@
-import { Player, Laser, Entity,EntityTypes } from "./gameObjects.js";
+import { Player, Laser, Entity,EntityTypes, SpawnableEntity } from "./gameObjects.js";
 import { GameMode, GameState } from "./gameState.js";
 import { mapObject } from "./map.js";
 
@@ -25,7 +25,7 @@ export type lobby = {
       mapName: string;
       mapSky: 'purpleStars' | 'whiteStars' | 'blueSky';
     };
-    entities: Record<EntityTypes, Entity[]>;
+    entities: Record<EntityTypes, SpawnableEntity[]>;
     lasers: Laser[];
     scoreBoard: ScoreBoard;
     hasBots: boolean;
