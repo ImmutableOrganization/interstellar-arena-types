@@ -3,6 +3,7 @@ import { GunOption } from './userStats.js';
 
 
 export type Entity = {
+  dead: boolean;
   id: string;
   position: [number, number, number];
   rotation: [number, number, number];
@@ -16,7 +17,6 @@ export type SpawnableEntity = {
 } & Entity;
 
 export type Player = {
-    dead: boolean;
     gun: GunOption;
     cameraRotation: [number, number, number];
     team?: 'green' | 'blue';
