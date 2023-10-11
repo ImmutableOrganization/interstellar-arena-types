@@ -5,13 +5,17 @@ export type Entity = {
     position: [number, number, number];
     rotation: [number, number, number];
     keysPressed: Record<string, boolean>;
-    dead: boolean;
     model: {
         laserHitbox: Mesh;
         collisionHitbox: Mesh;
     };
 };
+export type SpawnableEntity = {
+    spawnerID: string;
+    spawnTime: number;
+} & Entity;
 export type Player = {
+    dead: boolean;
     gun: GunOption;
     cameraRotation: [number, number, number];
     team?: 'green' | 'blue';
