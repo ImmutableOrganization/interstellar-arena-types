@@ -1,13 +1,23 @@
 import { Player, Laser, EntityTypes, SpawnableEntity } from "./gameObjects.js";
 import { GameMode, GameState } from "./gameState.js";
 import { mapObject } from "./map.js";
+declare const roundStates: readonly ["START", "ONGOING", "END"];
+type RoundData = {
+    state: (typeof roundStates)[number];
+    roundNumber: number;
+};
 export type lobby = {
     id: string;
     players: Record<string, Player>;
     game: {
         gameMode: GameMode;
-        winCondition: number;
         gameState: (typeof GameState)[number];
+        zombie: {
+            roundData: RoundData;
+        };
+        arena: {
+            winCondition: number;
+        };
         duration: {
             match: {
                 startTime: number;
@@ -36,3 +46,4 @@ export type ScoreBoard = Record<string, {
     kills: number;
     deaths: number;
 }>;
+export {};

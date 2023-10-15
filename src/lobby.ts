@@ -1,4 +1,4 @@
-import { Player, Laser, Entity,EntityTypes, SpawnableEntity } from "./gameObjects.js";
+import { Player, Laser, EntityTypes, SpawnableEntity } from "./gameObjects.js";
 import { GameMode, GameState } from "./gameState.js";
 import { mapObject } from "./map.js";
 
