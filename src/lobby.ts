@@ -2,13 +2,24 @@ import { Player, Laser, Entity,EntityTypes, SpawnableEntity } from "./gameObject
 import { GameMode, GameState } from "./gameState.js";
 import { mapObject } from "./map.js";
 
+const roundStates = ['START', 'ONGOING', 'END'] as const;
+type RoundData = {
+  state: (typeof roundStates)[number];
+  roundNumber: number;
+};
+
 export type lobby = {
     id: string;
     players: Record<string, Player>;
     game: {
       gameMode: GameMode;
-      winCondition: number;
       gameState: (typeof GameState)[number];
+      zombie: {
+        roundData: RoundData;
+      };
+      arena:{
+        winCondition: number;
+      }
       duration: {
         match: {
           startTime: number;
