@@ -24,7 +24,7 @@ export type Player = {
     username?: string;
 } & Entity;
   
-export const ObjectTypesEnum = ['Player', 'PowerUp', 'Laser', 'Wall', 'Floor', 'Ladder', 'Tree1', 'Tree2', 'Rock', 'Stump', 'Grass', 'Zombie'] as const;
+export const ObjectTypesEnum = ['Player', 'PowerUp', 'Laser', 'Wall', 'Floor', 'Ladder', 'Tree1', 'Tree2', 'Rock', 'Stump', 'Grass', 'Zombie', 'Agent Waypoint'] as const;
 
 export type ObjectTypes = (typeof ObjectTypesEnum)[number];
 

@@ -22,7 +22,7 @@ export type Player = {
     authId?: string;
     username?: string;
 } & Entity;
-export declare const ObjectTypesEnum: readonly ["Player", "PowerUp", "Laser", "Wall", "Floor", "Ladder", "Tree1", "Tree2", "Rock", "Stump", "Grass", "Zombie"];
+export declare const ObjectTypesEnum: readonly ["Player", "PowerUp", "Laser", "Wall", "Floor", "Ladder", "Tree1", "Tree2", "Rock", "Stump", "Grass", "Zombie", "Agent Waypoint"];
 export type ObjectTypes = (typeof ObjectTypesEnum)[number];
 export declare const EntityTypesSet: readonly ["Zombie"];
 export type EntityTypes = (typeof EntityTypesSet)[number];
