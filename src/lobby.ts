@@ -35,6 +35,7 @@ export type lobby = {
       mapData: Record<mapObject['type'], mapObject[]>;
       mapName: string;
       mapSky: 'purpleStars' | 'whiteStars' | 'blueSky';
+      navigationMatrix?: number[][];
     };
     entities: Record<EntityTypes, SpawnableEntity[]>;
     lasers: Laser[];
