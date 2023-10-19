@@ -2,6 +2,7 @@ import { Mesh, Vector3 } from 'three';
 import { GunOption } from './userStats.js';
 export type Entity = {
     dead: boolean;
+    health: number;
     id: string;
     position: [number, number, number];
     rotation: [number, number, number];
