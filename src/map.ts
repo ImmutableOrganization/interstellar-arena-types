@@ -14,5 +14,6 @@ export type mapObject = {
     color?: string;
     textureUrl: (typeof textureUrls)[number];
     uuid: string;
+    scale: number[];
   };
   
