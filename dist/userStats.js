@@ -5,12 +5,12 @@ export const GunConfig = {
         fireRate: 100,
         range: 1000,
     },
-    Shotgun: {
+    SMG: {
         damage: 20,
         fireRate: 500,
         range: 1000,
     },
-    SMG: {
+    Shotgun: {
         damage: 15,
         fireRate: 50,
         range: 600,
@@ -18,6 +18,6 @@ export const GunConfig = {
     Sniper: {
         damage: 100,
         fireRate: 500,
-        range: 1000,
+        range: 5000,
     },
 };
