@@ -7,3 +7,8 @@ export type UserStatsType = {
     deaths: number;
     loadout: GunOption;
 };
+export declare const GunConfig: Record<GunOption, {
+    damage: number;
+    fireRate: number;
+    range: number;
+}>;
