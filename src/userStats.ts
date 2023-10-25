@@ -24,13 +24,13 @@ export const GunConfig: Record<GunOption, {
     },
     SMG: {
         damage: 20,
-        fireRate: 500,
+        fireRate: 50,
         range: 1000,
         ammoCapacity: 60,
     },
     Shotgun: {
         damage: 15,
-        fireRate: 50,
+        fireRate: 300,
         range: 600,
         ammoCapacity: 8,
     },
