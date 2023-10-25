@@ -11,4 +11,5 @@ export declare const GunConfig: Record<GunOption, {
     damage: number;
     fireRate: number;
     range: number;
+    ammoCapacity: number;
 }>;

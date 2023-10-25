@@ -18,6 +18,7 @@ export type SpawnableEntity = {
 } & Entity;
 export type Player = {
     gun: GunOption;
+    gunAmmo: number;
     cameraRotation: [number, number, number];
     team?: 'green' | 'blue';
     authId?: string;
