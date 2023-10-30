@@ -24,6 +24,7 @@ export type Player = {
     team?: 'green' | 'blue';
     authId?: string;
     username?: string;
+    playerOption: typeof PlayerOptions[number];
 } & Entity;
   
 
