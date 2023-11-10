@@ -26,7 +26,7 @@ export type Player = {
     playerOption: typeof PlayerOptions[number];
 } & Entity;
 export declare const PlayerOptions: readonly ["Benjamin", "William", "Samuel", "Nathaniel", "Charles", "Eleanor", "Victoria", "Margaret"];
-export declare const tileTypes: readonly ["Building", "Nature", "Road", "Vehicle"];
+export declare const tileTypes: readonly ["Building", "Sign", "Nature", "Road", "Vehicle", "Entity", "Machine", "Food", "Misc", "invalid", "Light"];
 export declare const mapObjectFileData: Record<typeof ObjectTypesEnum[number], {
     label: string;
     previewUrl: string;

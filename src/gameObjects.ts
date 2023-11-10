@@ -39,7 +39,7 @@ export const PlayerOptions = [
   'Margaret',
 ] as const;
 
-export const tileTypes = ['Building', 'Nature', 'Road', 'Vehicle'] as const;
+export const tileTypes = ['Building', 'Sign', 'Nature', 'Road', 'Vehicle', 'Entity', 'Machine', 'Food','Misc', 'invalid','Light'] as const;
 
 export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   label: string;
@@ -50,172 +50,172 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   Player: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Entity'
   },
   PowerUp: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   Laser: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   Wall: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'invalid'
   },
   Floor: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'invalid'
   },
   Ladder: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'invalid'
   },
   Tree1: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   Tree2: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   Rock: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   Stump: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   Grass: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   Zombie: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Entity'
   },
   'Agent Waypoint': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'invalid'
   },
   Car01: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Car02: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Car03: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Car04: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Car05: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Car06: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Car07: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Car08: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   Circuit_Breaker: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Generator: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Pipe_Valve: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Pump: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Switch_1: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Switch_2: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Switch_3: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Transformer: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Turbine: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Pipe1: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Pipe2: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Pipe3: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   Pipe4: {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_busStop_bus.glb': {
     label: '',
@@ -240,17 +240,17 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_busStop_busStopSign1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_busStop_busStopSign2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_busStop_busStopSign3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_busStop_concrete.glb': {
     label: '',
@@ -275,22 +275,22 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_busStop_housePath.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_busStop_plant1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_busStop_plant2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_busStop_plant3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_busStop_telephonePole1.glb': {
     label: '',
@@ -305,27 +305,27 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_busStop_tree1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_busStop_tree2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_busStop_tree3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_busStop_tree4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_gasStation_dumpster.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_gasStation_gasPumps.glb': {
     label: '',
@@ -335,7 +335,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_gasStation_stationBase.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_gasStation_washroomNoDoor.glb': {
     label: '',
@@ -345,12 +345,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_gasStation_garbage1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_gasStation_iceBox.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_gasStation_stationDoor.glb': {
     label: '',
@@ -360,12 +360,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_gasStation_garbage2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_gasStation_road.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_gasStation_stationNoDoor.glb': {
     label: '',
@@ -375,12 +375,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_gasStation_garbage3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_gasStation_sign.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_gasStation_washroom.glb': {
     label: '',
@@ -390,7 +390,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_Roads.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_modelPack2_bush17.glb': {
     label: '',
@@ -400,12 +400,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_garbage9.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_box1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush18.glb': {
     label: '',
@@ -420,7 +420,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_box10.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush19.glb': {
     label: '',
@@ -435,7 +435,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_box11.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush2.glb': {
     label: '',
@@ -450,7 +450,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_box12.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush20.glb': {
     label: '',
@@ -465,7 +465,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_box13.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush21.glb': {
     label: '',
@@ -475,287 +475,287 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_industrialShelf.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_box14.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_lightpole.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Light'
   },
   'elbolilloduro_modelPack2_box15.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_shelf0.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_box16.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_shelf1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_box17.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_tree1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box18.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_tree10.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box19.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_tree11.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush9.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_tree12.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box20.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_car1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   'elbolilloduro_modelPack2_tree13.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box21.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_car2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle'
   },
   'elbolilloduro_modelPack2_tree2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_container1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_tree3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_container1full.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_tree4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_container2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_tree5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_container2full.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_tree6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_container3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_tree7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_container4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_tree8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box9.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_garbage1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_tree9.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_bush1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage10.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_warehouse.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_bush10.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_warehouseDoor.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_modelPack2_bush11.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_warehouseNoDoor.glb': {
     label: '',
@@ -765,12 +765,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush12.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_woodfence.glb': {
     label: '',
@@ -780,12 +780,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush13.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_woodfence2.glb': {
     label: '',
@@ -795,12 +795,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush14.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_woodfencepost.glb': {
     label: '',
@@ -810,232 +810,232 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush15.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_airconditioning.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_couch.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pan1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_spices4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_alarmClock.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_couch1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pic1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_stewpot.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_alarmClock1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_cup.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pic2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_stove.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_banana.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_cup1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pic3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_table.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_bananas.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_cup2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pic4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_table1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_bed1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_cup3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pic5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_table2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_bed2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_cup4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pic6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_toaster.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_blender.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_cup5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pic7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_toilet.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_book1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_curtain1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_plant1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_toiletpaper.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_book2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_curtain2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_plant2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_toothbrush.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_book3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_cutlery.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_plate1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_trailer1.glb': {
     label: '',
@@ -1045,17 +1045,17 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_book4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_cuttingboard.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_plate2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_trailer1noDoor.glb': {
     label: '',
@@ -1065,37 +1065,37 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_book5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_door1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_plate3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_trailerAC.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_book6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_door2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pot1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_trailerBase.glb': {
     label: '',
@@ -1105,7 +1105,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_book7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_fence1.glb': {
     label: '',
@@ -1115,7 +1115,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_pot1Lid.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_trailerDoor.glb': {
     label: '',
@@ -1125,7 +1125,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_bookshelf.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_fenceLong.glb': {
     label: '',
@@ -1135,7 +1135,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_pot1noLid.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_trailerFence.glb': {
     label: '',
@@ -1145,382 +1145,382 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_brush1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_fridge.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_pot2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_tree1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_bull.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_fuseBox1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_pot2nolid.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_tree2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_cable1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_fuseBox2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_powerPole.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tree3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_cable2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_garbage1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_powerPole1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tree4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_cable3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_garbage2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_powerPost.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tree5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_cable4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_garbage3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_radiator.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tree6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_cable5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_garbageCan.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_radio1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_cereal1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_garbageCanLid.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_radio2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_treewall1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_cereal2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_garbageCanNoLid.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_radio3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_treewall2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_trailerPark_cereal3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_ground.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_trailerPark_radio4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tube.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_chair.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_kettle.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_radio5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tv.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tv1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_clotheslin7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_kitchenBase.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_sal.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tv2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_tv3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_clotheslin8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_kitchenTop.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_satellite.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_vase1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_vase2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_vase3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_vase4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_vase5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_vase6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_clothesline1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_lamp1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Light'
   },
   'elbolilloduro_trailerPark_showerRack.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_clothesline2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_lamp2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Machine'
   },
   'elbolilloduro_trailerPark_showerhandle.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_clothesline3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_light.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Light'
   },
   'elbolilloduro_trailerPark_sink.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_clothesline4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_meat1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_sinkHandle.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_clothesline5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_meat2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_soap1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_clothesline6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_meat3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_soap2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_clotheslinePost.glb': {
     label: '',
@@ -1530,7 +1530,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_microwave.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_soap3.glb': {
     label: '',
@@ -1540,52 +1540,52 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_trailerPark_wastebin.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Misc'
   },
   'elbolilloduro_trailerPark_coffee.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_oliveoil.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_spices1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_coffee1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_oliveoil1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_spices2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_cookware.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_pan.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_trailerPark_spices3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Food'
   },
   'elbolilloduro_modelPack1_building1.glb': {
     label: '',
@@ -1605,7 +1605,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building10.glb': {
     label: '',
@@ -1625,7 +1625,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building11.glb': {
     label: '',
@@ -1645,7 +1645,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building12.glb': {
     label: '',
@@ -1665,7 +1665,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_tree1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building14.glb': {
     label: '',
@@ -1685,7 +1685,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_tree2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building15.glb': {
     label: '',
@@ -1700,12 +1700,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_tree3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building16.glb': {
     label: '',
@@ -1720,12 +1720,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_tree4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building17.glb': {
     label: '',
@@ -1740,7 +1740,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building2.glb': {
     label: '',
@@ -1755,7 +1755,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack1_building3.glb': {
     label: '',
@@ -1770,357 +1770,357 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack1_rock5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_roads_bridge1pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road3pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road5pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign15.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge1pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road3pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road5pt6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge1pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road3pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road5pt7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_bridge1pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road3pt6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road5pt8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge1pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road3pt7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge1pt6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road3pt8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_bridge1pt7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge1pt8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road1pt8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge1pt9.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road2pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_sign9.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge2pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road2pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_tree1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_roads_bridge2pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road2pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_tree2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_roads_bridge2pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road2pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road6pt8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_tree3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_roads_bridge2pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road2pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_tree4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_roads_bridge2pt5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road2pt6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road4pt8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign10.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_tree5.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_roads_bridge2pt6.glb': {
     label: '',
@@ -2130,72 +2130,72 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_roads_road3pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road5pt1.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign11.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_tree6.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_roads_bridge2pt7.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road3pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road5pt2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign12.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_bridge2pt8.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_road5pt3.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_roads_sign13.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_bridge2pt9.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_road5pt4.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'elbolilloduro_roads_sign14.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Sign'
   },
   'pepperonijabroni_building1.glb': {
     label: '',
@@ -2255,7 +2255,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'pepperonijabroni_road.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   }
 }
 
