@@ -26,7 +26,7 @@ export type Player = {
     playerOption: typeof PlayerOptions[number];
 } & Entity;
 export declare const PlayerOptions: readonly ["Benjamin", "William", "Samuel", "Nathaniel", "Charles", "Eleanor", "Victoria", "Margaret"];
-declare const tileTypes: readonly ["Building", "Nature", "Road"];
+export declare const tileTypes: readonly ["Building", "Nature", "Road", "Vehicle"];
 export declare const mapObjectFileData: Record<typeof ObjectTypesEnum[number], {
     label: string;
     previewUrl: string;
@@ -52,4 +52,3 @@ export type Laser = BaseGameObject & {
     hitPoint: Vector3;
     distance: number;
 };
-export {};

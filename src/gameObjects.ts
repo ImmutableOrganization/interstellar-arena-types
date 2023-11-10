@@ -39,7 +39,7 @@ export const PlayerOptions = [
   'Margaret',
 ] as const;
 
-const tileTypes = ['Building', 'Nature', 'Road'] as const;
+export const tileTypes = ['Building', 'Nature', 'Road', 'Vehicle'] as const;
 
 export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   label: string;
@@ -220,7 +220,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_busStop_bus.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Vehicle',
   },
   'elbolilloduro_busStop_busStop1.glb': {
     label: '',
@@ -255,7 +255,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_busStop_concrete.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Road'
   },
   'elbolilloduro_busStop_house.glb': {
     label: '',
@@ -395,7 +395,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush17.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_garbage9.glb': {
     label: '',
@@ -410,12 +410,12 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush18.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_hedge.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_box10.glb': {
     label: '',
@@ -425,7 +425,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush19.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_houseContainer.glb': {
     label: '',
@@ -440,7 +440,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush2.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_houseContainerDoor.glb': {
     label: '',
@@ -455,7 +455,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush20.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_houseContainerNoDoor.glb': {
     label: '',
@@ -470,7 +470,7 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
   'elbolilloduro_modelPack2_bush21.glb': {
     label: '',
     previewUrl: '',
-    type: 'Building'
+    type: 'Nature'
   },
   'elbolilloduro_modelPack2_industrialShelf.glb': {
     label: '',
