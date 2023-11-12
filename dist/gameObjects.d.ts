@@ -15,6 +15,7 @@ export type Entity = {
 export type SpawnableEntity = {
     spawnerID: string;
     spawnTime: number;
+    spawning: boolean;
 } & Entity;
 export type Player = {
     gun: GunOption;
