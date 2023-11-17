@@ -48,6 +48,7 @@ export type UserStatsType = {
     kills: number;
     deaths: number;
     loadout: GunOption;
+    skin: string;
 };
 
 export const GunConfig: Record<GunOption, { 

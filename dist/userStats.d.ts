@@ -6,6 +6,7 @@ export type UserStatsType = {
     kills: number;
     deaths: number;
     loadout: GunOption;
+    skin: string;
 };
 export declare const GunConfig: Record<GunOption, {
     damage: number;
