@@ -31,17 +31,31 @@ function increase_brightness(hex: string, percent: number) {
         ((0 | (1 << 8) + b + (256 - b) * percent / 100).toString(16)).substr(1);
 }
 
-export function getLevelFromXP(xp: number) {
+export function calculateLevelAndRemainingXP(currentXP: number) {
     let level = 1;
-    let xpForNextLevel = 0;
+    let xpForNextLevel = xpForLevel(level);
 
-    while (xp >= xpForNextLevel) {
-        xpForNextLevel += Math.floor(level + 300 * Math.pow(2, level / 7.0));
-        if (xp < xpForNextLevel) {
-            break;
-        }
+    // Find the current level based on XP
+    while (currentXP >= xpForNextLevel) {
         level++;
+        xpForNextLevel = xpForLevel(level);
     }
 
-    return level;
+
+    // Calculate remaining XP for the next level
+    let xpRemaining = xpForNextLevel - currentXP;
+
+    return {
+        currentLevel: level - 1,
+        xpRemainingToNextLevel: xpRemaining
+    };
+}
+
+// Helper function to calculate total XP for a given level
+export function xpForLevel(level: number) {
+    let xp = 0;
+    for (let l = 1; l < level; l++) {
+        xp += Math.floor(l + 300 * Math.pow(2, l / 7.0));
+    }
+    return xp;
 }
