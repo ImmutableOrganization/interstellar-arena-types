@@ -31,6 +31,8 @@ export function calculateLevelAndRemainingXP(currentXP) {
         level++;
         xpForNextLevel = xpForLevel(level);
     }
+    // XP required for the previous level
+    let xpForCurrentLevel = xpForLevel(level - 1);
     // Calculate remaining XP for the next level
     let xpRemaining = xpForNextLevel - currentXP;
     return {
@@ -42,7 +44,7 @@ export function calculateLevelAndRemainingXP(currentXP) {
 export function xpForLevel(level) {
     let xp = 0;
     for (let l = 1; l < level; l++) {
-        xp += Math.floor(l + 300 * Math.pow(2, l / 7.0));
+        xp += Math.floor(0.25 * (l + 300 * Math.pow(2, l / 7.0)));
     }
     return xp;
 }
