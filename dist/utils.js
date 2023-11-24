@@ -23,3 +23,15 @@ function increase_brightness(hex, percent) {
         ((0 | (1 << 8) + g + (256 - g) * percent / 100).toString(16)).substr(1) +
         ((0 | (1 << 8) + b + (256 - b) * percent / 100).toString(16)).substr(1);
 }
+export function getLevelFromXP(xp) {
+    let level = 1;
+    let xpForNextLevel = 0;
+    while (xp >= xpForNextLevel) {
+        xpForNextLevel += Math.floor(level + 300 * Math.pow(2, level / 7.0));
+        if (xp < xpForNextLevel) {
+            break;
+        }
+        level++;
+    }
+    return level;
+}
