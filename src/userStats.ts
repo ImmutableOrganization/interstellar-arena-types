@@ -22,7 +22,7 @@ export const _gunOptions = [
     "M24",
     "L96A1",
     "N2 SRS",
-    "MP5-5K",
+    "MP5K",
     "MP5",
     "MP7",
     "UMP"
@@ -222,7 +222,7 @@ export const GunConfig: Record<GunOption, {
         requiresLevel: 1,
         type: 'Sniper Rifle'
     },
-    'MP5-5K': {
+    'MP5K': {
         damage: 20,
         fireRate: 50,
         range: 3000,
