@@ -14,4 +14,5 @@ export declare const GunConfig: Record<GunOption, {
     range: number;
     ammoCapacity: number;
     requiresLevel: number;
+    type: 'Assault Rifle' | 'Pistol' | 'Revolver' | 'Shotgun' | 'Sniper Rifle' | 'Submachine Gun';
 }>;
