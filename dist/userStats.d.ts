@@ -1,4 +1,4 @@
-export declare const _gunOptions: readonly ["AssaultRifle_1", "AssaultRifle_2", "AssaultRifle_3", "AssaultRifle_4", "AssaultRifle_5", "AssaultRifle2_1", "AssaultRifle2_2", "AssaultRifle2_3", "AssaultRifle2_4", "Bullpup_1", "Bullpup_2", "Pistol_1", "Pistol_2", "Pistol_3", "Pistol_4", "Pistol_5", "Pistol_6", "Revolver_1", "Revolver_2", "Revolver_3", "Revolver_4", "Revolver_5", "Shotgun_1", "Shotgun_2", "Shotgun_3", "Shotgun_4", "Shotgun_SawedOff", "Shotgun_ShortStock", "SniperRifle_1", "SniperRifle_2", "SniperRifle_3", "SniperRifle_4", "SniperRifle_5", "SniperRifle_6", "SubmachineGun_1", "SubmachineGun_2", "SubmachineGun_3", "SubmachineGun_4", "SubmachineGun_5"];
+export declare const _gunOptions: readonly ["AK-47", "AKMS", "AK-101", "M4 Rifle", "M4 Carbine", "M4 Commando", "Browning HP", "P226", "G18", "M9", "Desert Eagle", ".357 Magnum", "44 Magnum", "S&W Model 36", "Model 29", "Mossberg 590", "W1200", "Sawed Off", "Remington 870", "M24", "L96A1", "N2 SRS", "MP5-5K", "MP5", "MP7", "UMP"];
 export type GunOption = (typeof _gunOptions)[number];
 export type UserStatsType = {
     username: string;
@@ -13,4 +13,5 @@ export declare const GunConfig: Record<GunOption, {
     fireRate: number;
     range: number;
     ammoCapacity: number;
+    requiresLevel: number;
 }>;

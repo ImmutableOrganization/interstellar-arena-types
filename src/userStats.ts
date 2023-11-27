@@ -1,44 +1,31 @@
 
 export const _gunOptions = [
-    "AssaultRifle_1",
-    "AssaultRifle_2",
-    "AssaultRifle_3",
-    "AssaultRifle_4",
-    "AssaultRifle_5",
-    "AssaultRifle2_1",
-    "AssaultRifle2_2",
-    "AssaultRifle2_3",
-    "AssaultRifle2_4",
-    "Bullpup_1",
-    "Bullpup_2",
-    "Pistol_1",
-    "Pistol_2",
-    "Pistol_3",
-    "Pistol_4",
-    "Pistol_5",
-    "Pistol_6",
-    "Revolver_1",
-    "Revolver_2",
-    "Revolver_3",
-    "Revolver_4",
-    "Revolver_5",
-    "Shotgun_1",
-    "Shotgun_2",
-    "Shotgun_3",
-    "Shotgun_4",
-    "Shotgun_SawedOff",
-    "Shotgun_ShortStock",
-    "SniperRifle_1",
-    "SniperRifle_2",
-    "SniperRifle_3",
-    "SniperRifle_4",
-    "SniperRifle_5",
-    "SniperRifle_6",
-    "SubmachineGun_1",
-    "SubmachineGun_2",
-    "SubmachineGun_3",
-    "SubmachineGun_4",
-    "SubmachineGun_5"
+    "AK-47",
+    "AKMS",
+    "AK-101",
+    "M4 Rifle",
+    "M4 Carbine",
+    "M4 Commando",
+    "Browning HP",
+    "P226",
+    "G18",
+    "M9",
+    "Desert Eagle",
+    ".357 Magnum",
+    "44 Magnum",
+    "S&W Model 36",
+    "Model 29",
+    "Mossberg 590",
+    "W1200",
+    "Sawed Off",
+    "Remington 870",
+    "M24",
+    "L96A1",
+    "N2 SRS",
+    "MP5-5K",
+    "MP5",
+    "MP7",
+    "UMP"
 ] as const;
 export type GunOption = (typeof _gunOptions)[number];
 
@@ -51,245 +38,214 @@ export type UserStatsType = {
     skin: string;
 };
 
-export const GunConfig: Record<GunOption, { 
+export const GunConfig: Record<GunOption, {
     damage: number;
     fireRate: number;
     range: number;
     ammoCapacity: number;
+    requiresLevel: number;
 }> = {
-    AssaultRifle_1: {
+    'AK-47': {
+        damage: 30,
+        fireRate: 100,
+        range: 3000,
+        ammoCapacity: 30,
+        requiresLevel: 1
+    },
+    AKMS: {
+        damage: 30,
+        fireRate: 100,
+        range: 3000,
+        ammoCapacity: 30,
+        requiresLevel: 1
+    },
+    'AK-101': {
+        damage: 30,
+        fireRate: 100,
+        range: 3000,
+        ammoCapacity: 30,
+        requiresLevel: 1
+    },
+    'M4 Rifle': {
         damage: 30,
         fireRate: 100,
         range: 3000,
         ammoCapacity: 30
+        ,
+        requiresLevel: 1
     },
-    AssaultRifle_2: {
+    'M4 Carbine': {
+        damage: 30,
+        fireRate: 100,
+        range: 3000,
+        ammoCapacity: 30,
+        requiresLevel: 1
+    },
+    'M4 Commando': {
         damage: 30,
         fireRate: 100,
         range: 3000,
         ammoCapacity: 30
+        ,
+        requiresLevel: 1
     },
-    AssaultRifle_3: {
+    'Browning HP': {
+        damage: 15, 
+        fireRate: 300, 
+        range: 2500, 
+        ammoCapacity: 8 
+        ,
+        requiresLevel: 1
+    },
+    'P226': {
+        damage: 15, 
+        fireRate: 300, 
+        range: 2500, 
+        ammoCapacity: 8 
+        ,
+        requiresLevel: 1
+    },
+    'G18': {
+        damage: 15, 
+        fireRate: 300, 
+        range: 2500, 
+        ammoCapacity: 8 
+        ,
+        requiresLevel: 1
+    },
+    'M9': {
+        damage: 15, 
+        fireRate: 300, 
+        range: 2500, 
+        ammoCapacity: 8 
+        ,
+        requiresLevel: 1
+    },
+    'Desert Eagle': {
+        damage: 15, 
+        fireRate: 300, 
+        range: 2500, 
+        ammoCapacity: 8 
+        ,
+        requiresLevel: 1
+    },
+    '.357 Magnum': {
         damage: 30,
         fireRate: 100,
         range: 3000,
         ammoCapacity: 30
+        ,
+        requiresLevel: 1
     },
-    AssaultRifle_4: {
+    '44 Magnum': {
         damage: 30,
         fireRate: 100,
         range: 3000,
         ammoCapacity: 30
+        ,
+        requiresLevel: 1
     },
-    AssaultRifle_5: {
+    'S&W Model 36': {
         damage: 30,
         fireRate: 100,
         range: 3000,
         ammoCapacity: 30
+        ,
+        requiresLevel: 1
     },
-    AssaultRifle2_1: {
+    'Model 29': {
         damage: 30,
         fireRate: 100,
         range: 3000,
         ammoCapacity: 30
+        ,
+        requiresLevel: 1
     },
-    AssaultRifle2_2: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
+    'Mossberg 590': {
+        damage: 15,
+        fireRate: 300,
+        range: 2500,
+        ammoCapacity: 8,
+        requiresLevel: 1
     },
-    AssaultRifle2_3: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
+    'W1200': {
+        damage: 15,
+        fireRate: 300,
+        range: 2500,
+        ammoCapacity: 8,
+        requiresLevel: 1
     },
-    AssaultRifle2_4: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Bullpup_1: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Bullpup_2: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Pistol_1: {
-        damage: 15, // Pistol is considered as a Shotgun
-        fireRate: 300, // Pistol is considered as a Shotgun
-        range: 2500, // Pistol is considered as a Shotgun
-        ammoCapacity: 8 // Pistol is considered as a Shotgun
-    },
-    Pistol_2: {
-        damage: 15, // Pistol is considered as a Shotgun
-        fireRate: 300, // Pistol is considered as a Shotgun
-        range: 2500, // Pistol is considered as a Shotgun
-        ammoCapacity: 8 // Pistol is considered as a Shotgun
-    },
-    Pistol_3: {
-        damage: 15, // Pistol is considered as a Shotgun
-        fireRate: 300, // Pistol is considered as a Shotgun
-        range: 2500, // Pistol is considered as a Shotgun
-        ammoCapacity: 8 // Pistol is considered as a Shotgun
-    },
-    Pistol_4: {
-        damage: 15, // Pistol is considered as a Shotgun
-        fireRate: 300, // Pistol is considered as a Shotgun
-        range: 2500, // Pistol is considered as a Shotgun
-        ammoCapacity: 8 // Pistol is considered as a Shotgun
-    },
-    Pistol_5: {
-        damage: 15, // Pistol is considered as a Shotgun
-        fireRate: 300, // Pistol is considered as a Shotgun
-        range: 2500, // Pistol is considered as a Shotgun
-        ammoCapacity: 8 // Pistol is considered as a Shotgun
-    },
-    Pistol_6: {
-        damage: 15, // Pistol is considered as a Shotgun
-        fireRate: 300, // Pistol is considered as a Shotgun
-        range: 2500, // Pistol is considered as a Shotgun
-        ammoCapacity: 8 // Pistol is considered as a Shotgun
-    },
-    Revolver_1: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Revolver_2: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Revolver_3: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Revolver_4: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Revolver_5: {
-        damage: 30,
-        fireRate: 100,
-        range: 3000,
-        ammoCapacity: 30
-    },
-    Shotgun_1: {
+    'Sawed Off': {
         damage: 15,
         fireRate: 300,
         range: 2500,
         ammoCapacity: 8
+        ,
+        requiresLevel: 1
     },
-    Shotgun_2: {
+    'Remington 870': {
         damage: 15,
         fireRate: 300,
         range: 2500,
         ammoCapacity: 8
+        ,
+        requiresLevel: 1
     },
-    Shotgun_3: {
-        damage: 15,
-        fireRate: 300,
-        range: 2500,
-        ammoCapacity: 8
-    },
-    Shotgun_4: {
-        damage: 15,
-        fireRate: 300,
-        range: 2500,
-        ammoCapacity: 8
-    },
-    Shotgun_SawedOff: {
-        damage: 15,
-        fireRate: 300,
-        range: 2500,
-        ammoCapacity: 8
-    },
-    Shotgun_ShortStock: {
-        damage: 15,
-        fireRate: 300,
-        range: 2500,
-        ammoCapacity: 8
-    },
-    SniperRifle_1: {
+    M24: {
         damage: 100,
         fireRate: 500,
         range: 10000,
         ammoCapacity: 10
+        ,
+        requiresLevel: 1
     },
-    SniperRifle_2: {
+    L96A1: {
         damage: 100,
         fireRate: 500,
         range: 10000,
         ammoCapacity: 10
+        ,
+        requiresLevel: 1
     },
-    SniperRifle_3: {
+    'N2 SRS': {
         damage: 100,
         fireRate: 500,
         range: 10000,
         ammoCapacity: 10
+        ,
+        requiresLevel: 1
     },
-    SniperRifle_4: {
-        damage: 100,
-        fireRate: 500,
-        range: 10000,
-        ammoCapacity: 10
-    },
-    SniperRifle_5: {
-        damage: 100,
-        fireRate: 500,
-        range: 10000,
-        ammoCapacity: 10
-    },
-    SniperRifle_6: {
-        damage: 100,
-        fireRate: 500,
-        range: 10000,
-        ammoCapacity: 10
-    },
-    SubmachineGun_1: {
+    'MP5-5K': {
         damage: 20,
         fireRate: 50,
         range: 3000,
         ammoCapacity: 60
+        ,
+        requiresLevel: 1
     },
-    SubmachineGun_2: {
+    MP5: {
         damage: 20,
         fireRate: 50,
         range: 3000,
         ammoCapacity: 60
+        ,
+        requiresLevel: 1
     },
-    SubmachineGun_3: {
+    MP7: {
         damage: 20,
         fireRate: 50,
         range: 3000,
         ammoCapacity: 60
+        ,
+        requiresLevel: 1
     },
-    SubmachineGun_4: {
+    UMP: {
         damage: 20,
         fireRate: 50,
         range: 3000,
         ammoCapacity: 60
-    },
-    SubmachineGun_5: {
-        damage: 20,
-        fireRate: 50,
-        range: 3000,
-        ammoCapacity: 60
+        ,
+        requiresLevel: 1
     }
 };
 
