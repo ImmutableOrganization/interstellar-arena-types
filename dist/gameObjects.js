@@ -70,6 +70,11 @@ export const mapObjectFileData = {
         "previewUrl": "",
         "type": "Entity"
     },
+    "Turret1": {
+        "label": "Turret1",
+        "previewUrl": "",
+        "type": "Machine"
+    },
     "Agent Waypoint": {
         "label": "Agent Waypoint",
         "previewUrl": "",
@@ -2229,7 +2234,7 @@ export const mapObjectFileData = {
 export const ObjectTypesEnum = ['Player',
     'PowerUp', 'Laser', 'Wall', 'Floor', 'Panel', 'Ladder',
     'Tree1', 'Tree2', 'Rock', 'Stump', 'Grass',
-    'Zombie', 'Agent Waypoint',
+    'Zombie', 'Agent Waypoint', 'Turret1',
     'Car01', 'Car02', 'Car03', 'Car04', 'Car05', 'Car06', 'Car07', 'Car08',
     'Circuit_Breaker', 'Generator', 'Pipe_Valve', 'Pump', 'Switch_1', 'Switch_2', 'Switch_3', 'Transformer', 'Turbine',
     'Pipe1', 'Pipe2', 'Pipe3', 'Pipe4',
@@ -2648,4 +2653,4 @@ export const ObjectTypesEnum = ['Player',
     "pepperonijabroni_fence.glb",
     "pepperonijabroni_road.glb",
 ];
-export const EntityTypesSet = ['Zombie'];
+export const EntityTypesSet = ['Zombie', 'Turret1'];
