@@ -13,6 +13,7 @@ export type lobby = {
         gameMode: GameMode;
         gameState: (typeof GameState)[number];
         zombie: {
+            points: Record<string, number>;
             roundData: RoundData;
         };
         arena: {
