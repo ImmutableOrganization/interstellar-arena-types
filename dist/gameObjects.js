@@ -2229,9 +2229,14 @@ export const mapObjectFileData = {
         label: '',
         previewUrl: '',
         type: 'Building'
+    },
+    BuyableItem: {
+        label: '',
+        previewUrl: '',
+        type: 'Building'
     }
 };
-export const ObjectTypesEnum = ['Player',
+export const ObjectTypesEnum = ['Player', "BuyableItem",
     'PowerUp', 'Laser', 'Wall', 'Floor', 'Panel', 'Ladder',
     'Tree1', 'Tree2', 'Rock', 'Stump', 'Grass',
     'Zombie', 'Agent Waypoint', 'Turret1',

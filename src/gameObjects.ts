@@ -1,7 +1,6 @@
 import { Mesh, Vector3 } from 'three';
 import { GunOption } from './userStats.js';
 
-
 export type Entity = {
   dead: boolean;
   health: number;
@@ -42,11 +41,13 @@ export const PlayerOptions = [
 
 export const tileTypes = ['Building', 'Sign', 'Nature', 'Road', 'Vehicle', 'Entity', 'Machine', 'Food','Misc', 'invalid','Light'] as const;
 
-export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
-  label: string;
-  previewUrl: string;
-  type:  typeof tileTypes[number];
-} 
+export const mapObjectFileData:Partial<
+    Record<typeof ObjectTypesEnum[number], {
+      label: string;
+      previewUrl: string;
+      type:  typeof tileTypes[number];
+    }
+    >
 > = {
     "Player": {
         "label": "Player",
@@ -2267,10 +2268,15 @@ export const mapObjectFileData:Record<typeof ObjectTypesEnum[number], {
         label: '',
         previewUrl: '',
         type: 'Building'
+    },
+    BuyableItem: {
+        label: '',
+        previewUrl: '',
+        type: 'Building'
     }
 }
 
-export const ObjectTypesEnum = ['Player',
+export const ObjectTypesEnum = ['Player', "BuyableItem",
   'PowerUp', 'Laser', 'Wall', 'Floor', 'Panel', 'Ladder',
   'Tree1', 'Tree2', 'Rock', 'Stump', 'Grass',
   'Zombie', 'Agent Waypoint','Turret1',

@@ -1,4 +1,3 @@
-export * from './deepReadOnly.js';
 export * from './gameObjects.js';
 export * from './gameState.js';
 export * from './lobby.js';

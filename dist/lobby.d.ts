@@ -1,6 +1,6 @@
 import { Player, Laser, EntityTypes, SpawnableEntity } from "./gameObjects.js";
 import { GameMode, GameState } from "./gameState.js";
-import { mapObject } from "./map.js";
+import { BuyableItem, mapObject } from "./map.js";
 declare const roundStates: readonly ["START", "ONGOING", "END"];
 type RoundData = {
     state: (typeof roundStates)[number];
@@ -31,7 +31,7 @@ export type lobby = {
         };
     };
     map: {
-        mapData: Record<mapObject['type'], mapObject[]>;
+        mapData: Record<mapObject['type'], (mapObject | BuyableItem)[]>;
         mapName: string;
         mapSky: 'purpleStars' | 'whiteStars' | 'blueSky';
         navigationMatrix?: number[][];
