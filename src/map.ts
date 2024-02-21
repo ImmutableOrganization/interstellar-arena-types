@@ -22,3 +22,4 @@ export type mapObject = {
     scale: number[];
   };
   
+export const skyOptions = ['space', 'earth day', 'earth night', 'earth morning'] as const;

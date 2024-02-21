@@ -5,7 +5,7 @@ export declare const floorColors: string[];
 export declare const textureUrls: readonly ["floor-checker", "floor-brick", "floor-dirt", "floor-metal", "floor-stone", "floor-tile", "floor-wood", "road", "fence", "concreteBlock"];
 export type BuyableItem = {
     cost: number;
-    item: GunOption | ObjectTypes;
+    item: GunOption;
 } & mapObject;
 export type mapObject = {
     position: number[];
@@ -18,3 +18,4 @@ export type mapObject = {
     uuid: string;
     scale: number[];
 };
+export declare const skyOptions: readonly ["space", "earth day", "earth night", "earth morning"];
