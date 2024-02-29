@@ -1085,11 +1085,6 @@ export const mapObjectFileData = {
         "previewUrl": "",
         "type": "Food"
     },
-    "elbolilloduro_trailerPark_tree1.glb": {
-        "label": "tree1",
-        "previewUrl": "",
-        "type": "Tree"
-    },
     "elbolilloduro_trailerPark_bull.glb": {
         "label": "bull",
         "previewUrl": "",
@@ -1104,11 +1099,6 @@ export const mapObjectFileData = {
         "label": "pot2nolid",
         "previewUrl": "",
         "type": "Misc"
-    },
-    "elbolilloduro_trailerPark_tree2.glb": {
-        "label": "tree2",
-        "previewUrl": "",
-        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable1.glb": {
         "label": "cable1",
@@ -1125,11 +1115,6 @@ export const mapObjectFileData = {
         "previewUrl": "",
         "type": "Machine"
     },
-    "elbolilloduro_trailerPark_tree3.glb": {
-        "label": "tree3",
-        "previewUrl": "",
-        "type": "Tree"
-    },
     "elbolilloduro_trailerPark_cable2.glb": {
         "label": "cable2",
         "previewUrl": "",
@@ -1144,11 +1129,6 @@ export const mapObjectFileData = {
         "label": "powerPole1",
         "previewUrl": "",
         "type": "Machine"
-    },
-    "elbolilloduro_trailerPark_tree4.glb": {
-        "label": "tree4",
-        "previewUrl": "",
-        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable3.glb": {
         "label": "cable3",
@@ -1165,11 +1145,6 @@ export const mapObjectFileData = {
         "previewUrl": "",
         "type": "Machine"
     },
-    "elbolilloduro_trailerPark_tree5.glb": {
-        "label": "tree5",
-        "previewUrl": "",
-        "type": "Tree"
-    },
     "elbolilloduro_trailerPark_cable4.glb": {
         "label": "cable4",
         "previewUrl": "",
@@ -1184,11 +1159,6 @@ export const mapObjectFileData = {
         "label": "radiator",
         "previewUrl": "",
         "type": "Machine"
-    },
-    "elbolilloduro_trailerPark_tree6.glb": {
-        "label": "tree6",
-        "previewUrl": "",
-        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable5.glb": {
         "label": "cable5",
@@ -1220,11 +1190,6 @@ export const mapObjectFileData = {
         "previewUrl": "",
         "type": "Machine"
     },
-    "elbolilloduro_trailerPark_treewall1.glb": {
-        "label": "treewall1",
-        "previewUrl": "",
-        "type": "Tree"
-    },
     "elbolilloduro_trailerPark_cereal2.glb": {
         "label": "cereal2",
         "previewUrl": "",
@@ -1239,11 +1204,6 @@ export const mapObjectFileData = {
         "label": "radio3",
         "previewUrl": "",
         "type": "Machine"
-    },
-    "elbolilloduro_trailerPark_treewall2.glb": {
-        "label": "treewall2",
-        "previewUrl": "",
-        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cereal3.glb": {
         "label": "cereal3",
@@ -1959,38 +1919,30 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
     "elbolilloduro_trailerPark_brush1.glb",
     "elbolilloduro_trailerPark_fridge.glb",
     "elbolilloduro_trailerPark_pot2.glb",
-    "elbolilloduro_trailerPark_tree1.glb",
     "elbolilloduro_trailerPark_bull.glb",
     "elbolilloduro_trailerPark_fuseBox1.glb",
     "elbolilloduro_trailerPark_pot2nolid.glb",
-    "elbolilloduro_trailerPark_tree2.glb",
     "elbolilloduro_trailerPark_cable1.glb",
     "elbolilloduro_trailerPark_fuseBox2.glb",
     "elbolilloduro_trailerPark_powerPole.glb",
-    "elbolilloduro_trailerPark_tree3.glb",
     "elbolilloduro_trailerPark_cable2.glb",
     "elbolilloduro_trailerPark_garbage1.glb",
     "elbolilloduro_trailerPark_powerPole1.glb",
-    "elbolilloduro_trailerPark_tree4.glb",
     "elbolilloduro_trailerPark_cable3.glb",
     "elbolilloduro_trailerPark_garbage2.glb",
     "elbolilloduro_trailerPark_powerPost.glb",
-    "elbolilloduro_trailerPark_tree5.glb",
     "elbolilloduro_trailerPark_cable4.glb",
     "elbolilloduro_trailerPark_garbage3.glb",
     "elbolilloduro_trailerPark_radiator.glb",
-    "elbolilloduro_trailerPark_tree6.glb",
     "elbolilloduro_trailerPark_cable5.glb",
     "elbolilloduro_trailerPark_garbageCan.glb",
     "elbolilloduro_trailerPark_radio1.glb",
     "elbolilloduro_trailerPark_cereal1.glb",
     "elbolilloduro_trailerPark_garbageCanLid.glb",
     "elbolilloduro_trailerPark_radio2.glb",
-    "elbolilloduro_trailerPark_treewall1.glb",
     "elbolilloduro_trailerPark_cereal2.glb",
     "elbolilloduro_trailerPark_garbageCanNoLid.glb",
     "elbolilloduro_trailerPark_radio3.glb",
-    "elbolilloduro_trailerPark_treewall2.glb",
     "elbolilloduro_trailerPark_cereal3.glb",
     "elbolilloduro_trailerPark_ground.glb",
     "elbolilloduro_trailerPark_radio4.glb",
