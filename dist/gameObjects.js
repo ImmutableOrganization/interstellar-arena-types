@@ -8,7 +8,7 @@ export const PlayerOptions = [
     'Victoria',
     'Margaret',
 ];
-export const tileTypes = ['Building', 'Sign', 'Nature', 'Road', 'Vehicle', 'Entity', 'Machine', 'Food', 'Misc', 'invalid', 'Light'];
+export const tileTypes = ['Building', 'Sign', 'Nature', 'Tree', 'Road', 'Vehicle', 'Entity', 'Machine', 'Food', 'Misc', 'invalid', 'Light'];
 export const mapObjectFileData = {
     "Player": {
         "label": "Player",
@@ -43,12 +43,12 @@ export const mapObjectFileData = {
     "Tree1": {
         "label": "Tree1",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "Tree2": {
         "label": "Tree2",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "Rock": {
         "label": "Rock",
@@ -273,22 +273,22 @@ export const mapObjectFileData = {
     "elbolilloduro_busStop_tree1.glb": {
         "label": "tree1",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_busStop_tree2.glb": {
         "label": "tree2",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_busStop_tree3.glb": {
         "label": "tree3",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_busStop_tree4.glb": {
         "label": "tree4",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_gasStation_dumpster.glb": {
         "label": "dumpster",
@@ -503,7 +503,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree1.glb": {
         "label": "tree1",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box18.glb": {
         "label": "box18",
@@ -513,12 +513,12 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_bush7.glb": {
         "label": "bush7",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_tree10.glb": {
         "label": "tree10",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box19.glb": {
         "label": "box19",
@@ -528,12 +528,12 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_bush8.glb": {
         "label": "bush8",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_tree11.glb": {
         "label": "tree11",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box2.glb": {
         "label": "box2",
@@ -543,12 +543,12 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_bush9.glb": {
         "label": "bush9",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_tree12.glb": {
         "label": "tree12",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box20.glb": {
         "label": "box20",
@@ -563,7 +563,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree13.glb": {
         "label": "tree13",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box21.glb": {
         "label": "box21",
@@ -578,7 +578,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree2.glb": {
         "label": "tree2",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box3.glb": {
         "label": "box3",
@@ -593,7 +593,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree3.glb": {
         "label": "tree3",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box4.glb": {
         "label": "box4",
@@ -608,7 +608,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree4.glb": {
         "label": "tree4",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box5.glb": {
         "label": "box5",
@@ -623,7 +623,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree5.glb": {
         "label": "tree5",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box6.glb": {
         "label": "box6",
@@ -638,7 +638,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree6.glb": {
         "label": "tree6",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box7.glb": {
         "label": "box7",
@@ -653,7 +653,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree7.glb": {
         "label": "tree7",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box8.glb": {
         "label": "box8",
@@ -668,7 +668,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree8.glb": {
         "label": "tree8",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_box9.glb": {
         "label": "box9",
@@ -683,7 +683,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack2_tree9.glb": {
         "label": "tree9",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack2_bush1.glb": {
         "label": "bush1",
@@ -1128,7 +1128,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_tree1.glb": {
         "label": "tree1",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_bull.glb": {
         "label": "bull",
@@ -1148,7 +1148,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_tree2.glb": {
         "label": "tree2",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable1.glb": {
         "label": "cable1",
@@ -1168,7 +1168,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_tree3.glb": {
         "label": "tree3",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable2.glb": {
         "label": "cable2",
@@ -1188,7 +1188,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_tree4.glb": {
         "label": "tree4",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable3.glb": {
         "label": "cable3",
@@ -1208,7 +1208,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_tree5.glb": {
         "label": "tree5",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable4.glb": {
         "label": "cable4",
@@ -1228,7 +1228,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_tree6.glb": {
         "label": "tree6",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cable5.glb": {
         "label": "cable5",
@@ -1263,7 +1263,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_treewall1.glb": {
         "label": "treewall1",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cereal2.glb": {
         "label": "cereal2",
@@ -1283,7 +1283,7 @@ export const mapObjectFileData = {
     "elbolilloduro_trailerPark_treewall2.glb": {
         "label": "treewall2",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_trailerPark_cereal3.glb": {
         "label": "cereal3",
@@ -1633,7 +1633,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack1_tree1.glb": {
         "label": "tree1",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack1_building14.glb": {
         "label": "building14",
@@ -1653,7 +1653,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack1_tree2.glb": {
         "label": "tree2",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack1_building15.glb": {
         "label": "building15",
@@ -1673,7 +1673,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack1_tree3.glb": {
         "label": "tree3",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack1_building16.glb": {
         "label": "building16",
@@ -1693,7 +1693,7 @@ export const mapObjectFileData = {
     "elbolilloduro_modelPack1_tree4.glb": {
         "label": "tree4",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_modelPack1_building17.glb": {
         "label": "building17",
@@ -1988,7 +1988,7 @@ export const mapObjectFileData = {
     "elbolilloduro_roads_tree1.glb": {
         "label": "tree1",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_roads_bridge2pt2.glb": {
         "label": "bridge2pt2",
@@ -2013,7 +2013,7 @@ export const mapObjectFileData = {
     "elbolilloduro_roads_tree2.glb": {
         "label": "tree2",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_roads_bridge2pt3.glb": {
         "label": "bridge2pt3",
@@ -2038,7 +2038,7 @@ export const mapObjectFileData = {
     "elbolilloduro_roads_tree3.glb": {
         "label": "tree3",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_roads_bridge2pt4.glb": {
         "label": "bridge2pt4",
@@ -2063,7 +2063,7 @@ export const mapObjectFileData = {
     "elbolilloduro_roads_tree4.glb": {
         "label": "tree4",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_roads_bridge2pt5.glb": {
         "label": "bridge2pt5",
@@ -2088,7 +2088,7 @@ export const mapObjectFileData = {
     "elbolilloduro_roads_tree5.glb": {
         "label": "tree5",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_roads_bridge2pt6.glb": {
         "label": "bridge2pt6",
@@ -2113,7 +2113,7 @@ export const mapObjectFileData = {
     "elbolilloduro_roads_tree6.glb": {
         "label": "tree6",
         "previewUrl": "",
-        "type": "Nature"
+        "type": "Tree"
     },
     "elbolilloduro_roads_bridge2pt7.glb": {
         "label": "bridge2pt7",
