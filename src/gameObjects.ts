@@ -53,11 +53,7 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Entity"
     },
-    "PowerUp": {
-        "label": "PowerUp",
-        "previewUrl": "",
-        "type": "Misc"
-    },
+
     "Laser": {
         "label": "Laser",
         "previewUrl": "",
@@ -281,11 +277,6 @@ export const mapObjectFileData:
         "type": "Misc"
     },
 
-    "elbolilloduro_gasStation_stationNoDoor.glb": {
-        "label": "stationNoDoor",
-        "previewUrl": "",
-        "type": "Building"
-    },
     "elbolilloduro_gasStation_garbage3.glb": {
         "label": "garbage3",
         "previewUrl": "",
@@ -351,11 +342,6 @@ export const mapObjectFileData:
         "label": "bush2",
         "previewUrl": "",
         "type": "Nature"
-    },
-    "elbolilloduro_modelPack2_houseContainerDoor.glb": {
-        "label": "houseContainerDoor",
-        "previewUrl": "",
-        "type": "Building"
     },
     "elbolilloduro_modelPack2_box12.glb": {
         "label": "box12",
@@ -1284,11 +1270,6 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Misc"
     },
-    "elbolilloduro_trailerPark_clothesline1.glb": {
-        "label": "clothesline1",
-        "previewUrl": "",
-        "type": "Misc"
-    },
     "elbolilloduro_trailerPark_lamp1.glb": {
         "label": "lamp1",
         "previewUrl": "",
@@ -1299,11 +1280,7 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Misc"
     },
-    "elbolilloduro_trailerPark_clothesline2.glb": {
-        "label": "clothesline2",
-        "previewUrl": "",
-        "type": "Misc"
-    },
+
     "elbolilloduro_trailerPark_lamp2.glb": {
         "label": "lamp2",
         "previewUrl": "",
@@ -1311,11 +1288,6 @@ export const mapObjectFileData:
     },
     "elbolilloduro_trailerPark_showerhandle.glb": {
         "label": "showerhandle",
-        "previewUrl": "",
-        "type": "Misc"
-    },
-    "elbolilloduro_trailerPark_clothesline3.glb": {
-        "label": "clothesline3",
         "previewUrl": "",
         "type": "Misc"
     },
@@ -1329,11 +1301,6 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Misc"
     },
-    "elbolilloduro_trailerPark_clothesline4.glb": {
-        "label": "clothesline4",
-        "previewUrl": "",
-        "type": "Misc"
-    },
     "elbolilloduro_trailerPark_meat1.glb": {
         "label": "meat1",
         "previewUrl": "",
@@ -1344,11 +1311,6 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Misc"
     },
-    "elbolilloduro_trailerPark_clothesline5.glb": {
-        "label": "clothesline5",
-        "previewUrl": "",
-        "type": "Misc"
-    },
     "elbolilloduro_trailerPark_meat2.glb": {
         "label": "meat2",
         "previewUrl": "",
@@ -1356,11 +1318,6 @@ export const mapObjectFileData:
     },
     "elbolilloduro_trailerPark_soap1.glb": {
         "label": "soap1",
-        "previewUrl": "",
-        "type": "Misc"
-    },
-    "elbolilloduro_trailerPark_clothesline6.glb": {
-        "label": "clothesline6",
         "previewUrl": "",
         "type": "Misc"
     },
@@ -1609,24 +1566,19 @@ export const mapObjectFileData:
         "type": "Nature"
     },
     Panel: {
-        label: '',
+        label: 'Panel',
         previewUrl: '',
         type: 'Building'
     },
     BuyableItem: {
-        label: '',
+        label: 'BuyableItem',
         previewUrl: '',
         type: 'Building'
     },
-    'elbolilloduro_gasStation_gasPumps.glb': {
-        label: '',
-        previewUrl: '',
-        type: 'Building'
-    }
 }
 
 export const ObjectTypesEnum = ['Player', "BuyableItem",
-  'PowerUp', 'Laser', 'Wall', 'Floor', 'Panel', 'Ladder',
+ 'Laser', 'Wall', 'Floor', 'Panel', 'Ladder',
   'Tree1', 'Tree2', 'Rock', 'Stump', 'Grass',
   'Zombie', 'Agent Waypoint','Turret1',
   'Car01', 'Car02', 'Car03', 'Car04', 'Car05', 'Car06', 'Car07', 'Car08',
@@ -1644,12 +1596,10 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_busStop_telephonePole1.glb",
   "elbolilloduro_busStop_telephonePole2.glb",
   "elbolilloduro_gasStation_dumpster.glb",
-  "elbolilloduro_gasStation_gasPumps.glb",
   "elbolilloduro_gasStation_washroomNoDoor.glb",
   "elbolilloduro_gasStation_garbage1.glb",
   "elbolilloduro_gasStation_iceBox.glb",
   "elbolilloduro_gasStation_garbage2.glb",
-  "elbolilloduro_gasStation_stationNoDoor.glb",
   "elbolilloduro_gasStation_garbage3.glb",
   "elbolilloduro_gasStation_sign.glb",
   "elbolilloduro_modelPack2_Roads.glb",
@@ -1663,7 +1613,6 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_modelPack2_houseContainer.glb",
   "elbolilloduro_modelPack2_box11.glb",
   "elbolilloduro_modelPack2_bush2.glb",
-  "elbolilloduro_modelPack2_houseContainerDoor.glb",
   "elbolilloduro_modelPack2_box12.glb",
   "elbolilloduro_modelPack2_bush20.glb",
   "elbolilloduro_modelPack2_houseContainerNoDoor.glb",
@@ -1849,22 +1798,16 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_trailerPark_vase4.glb",
   "elbolilloduro_trailerPark_vase5.glb",
   "elbolilloduro_trailerPark_vase6.glb",
-  "elbolilloduro_trailerPark_clothesline1.glb",
   "elbolilloduro_trailerPark_lamp1.glb",
   "elbolilloduro_trailerPark_showerRack.glb",
-  "elbolilloduro_trailerPark_clothesline2.glb",
   "elbolilloduro_trailerPark_lamp2.glb",
   "elbolilloduro_trailerPark_showerhandle.glb",
-  "elbolilloduro_trailerPark_clothesline3.glb",
   "elbolilloduro_trailerPark_light.glb",
   "elbolilloduro_trailerPark_sink.glb",
-  "elbolilloduro_trailerPark_clothesline4.glb",
   "elbolilloduro_trailerPark_meat1.glb",
   "elbolilloduro_trailerPark_sinkHandle.glb",
-  "elbolilloduro_trailerPark_clothesline5.glb",
   "elbolilloduro_trailerPark_meat2.glb",
   "elbolilloduro_trailerPark_soap1.glb",
-  "elbolilloduro_trailerPark_clothesline6.glb",
   "elbolilloduro_trailerPark_meat3.glb",
   "elbolilloduro_trailerPark_soap2.glb",
   "elbolilloduro_trailerPark_clotheslinePost.glb",
