@@ -232,11 +232,7 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Building"
     },
-    "elbolilloduro_busStop_housePath.glb": {
-        "label": "housePath",
-        "previewUrl": "",
-        "type": "Road"
-    },
+  
     "elbolilloduro_busStop_telephonePole1.glb": {
         "label": "telephonePole1",
         "previewUrl": "",
@@ -448,11 +444,6 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Tree"
     },
-    "elbolilloduro_modelPack2_box19.glb": {
-        "label": "box19",
-        "previewUrl": "",
-        "type": "Misc"
-    },
     "elbolilloduro_modelPack2_bush8.glb": {
         "label": "bush8",
         "previewUrl": "",
@@ -533,11 +524,7 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Misc"
     },
-    "elbolilloduro_modelPack2_tree4.glb": {
-        "label": "tree4",
-        "previewUrl": "",
-        "type": "Tree"
-    },
+ 
     "elbolilloduro_modelPack2_box5.glb": {
         "label": "box5",
         "previewUrl": "",
@@ -1160,11 +1147,6 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Food"
     },
-    "elbolilloduro_trailerPark_ground.glb": {
-        "label": "ground",
-        "previewUrl": "",
-        "type": "Road"
-    },
     "elbolilloduro_trailerPark_radio4.glb": {
         "label": "radio4",
         "previewUrl": "",
@@ -1592,7 +1574,6 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_busStop_house.glb",
   "elbolilloduro_busStop_houseFence.glb",
   "elbolilloduro_busStop_houseGate.glb",
-  "elbolilloduro_busStop_housePath.glb",
   "elbolilloduro_busStop_telephonePole1.glb",
   "elbolilloduro_busStop_telephonePole2.glb",
   "elbolilloduro_gasStation_dumpster.glb",
@@ -1634,7 +1615,6 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_modelPack2_box18.glb",
   "elbolilloduro_modelPack2_bush7.glb",
   "elbolilloduro_modelPack2_tree10.glb",
-  "elbolilloduro_modelPack2_box19.glb",
   "elbolilloduro_modelPack2_bush8.glb",
   "elbolilloduro_modelPack2_tree11.glb",
   "elbolilloduro_modelPack2_box2.glb",
@@ -1651,7 +1631,6 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_modelPack2_tree3.glb",
   "elbolilloduro_modelPack2_box4.glb",
   "elbolilloduro_modelPack2_container1full.glb",
-  "elbolilloduro_modelPack2_tree4.glb",
   "elbolilloduro_modelPack2_box5.glb",
   "elbolilloduro_modelPack2_container2.glb",
   "elbolilloduro_modelPack2_tree5.glb",
@@ -1776,7 +1755,6 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_trailerPark_garbageCanNoLid.glb",
   "elbolilloduro_trailerPark_radio3.glb",
   "elbolilloduro_trailerPark_cereal3.glb",
-  "elbolilloduro_trailerPark_ground.glb",
   "elbolilloduro_trailerPark_radio4.glb",
   "elbolilloduro_trailerPark_tube.glb",
   "elbolilloduro_trailerPark_chair.glb",
