@@ -1834,9 +1834,7 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_modelPack1_building3.glb",
   "elbolilloduro_modelPack1_cabin2.glb",
   "elbolilloduro_modelPack1_rock5.glb",
- 
 ] as const;
-
 export type ObjectTypes = (typeof ObjectTypesEnum)[number];
 
 export const EntityTypesSet = ['Zombie', 'Turret1'] as const;
