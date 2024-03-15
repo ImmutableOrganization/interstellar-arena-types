@@ -16,11 +16,11 @@ type BaseMapObject = {
   uuid: string;
 }
 
-type PlainMapObject = {
+export type PlainMapObject = {
   type: ObjectTypes;
 } & BaseMapObject;
 
- type texturedMapObject = {
+ export type texturedMapObject = {
   type:  'Wall' | 'Floor';
   color: string;
     textureUrl: (typeof textureUrls)[number];

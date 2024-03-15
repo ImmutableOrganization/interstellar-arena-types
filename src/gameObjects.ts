@@ -566,11 +566,6 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Misc"
     },
-    "elbolilloduro_modelPack2_warehouse.glb": {
-        "label": "warehouse",
-        "previewUrl": "",
-        "type": "Nature"
-    },
     "elbolilloduro_modelPack2_bush10.glb": {
         "label": "bush10",
         "previewUrl": "",
@@ -581,11 +576,7 @@ export const mapObjectFileData:
         "previewUrl": "",
         "type": "Misc"
     },
-    "elbolilloduro_modelPack2_warehouseDoor.glb": {
-        "label": "warehouseDoor",
-        "previewUrl": "",
-        "type": "Misc"
-    },
+  
     "elbolilloduro_modelPack2_bush11.glb": {
         "label": "bush11",
         "previewUrl": "",
@@ -1464,10 +1455,8 @@ export const ObjectTypesEnum = ['Player', "BuyableItem",
   "elbolilloduro_modelPack2_tree9.glb",
   "elbolilloduro_modelPack2_bush1.glb",
   "elbolilloduro_modelPack2_garbage10.glb",
-  "elbolilloduro_modelPack2_warehouse.glb",
   "elbolilloduro_modelPack2_bush10.glb",
   "elbolilloduro_modelPack2_garbage2.glb",
-  "elbolilloduro_modelPack2_warehouseDoor.glb",
   "elbolilloduro_modelPack2_bush11.glb",
   "elbolilloduro_modelPack2_garbage3.glb",
   "elbolilloduro_modelPack2_warehouseNoDoor.glb",
