@@ -17,7 +17,7 @@ export type PlainMapObject = {
     type: ObjectTypes;
 } & BaseMapObject;
 export type texturedMapObject = {
-    type: 'Wall' | 'Floor';
+    type: 'Wall' | 'Floor' | 'Panel' | 'Ladder';
     color: string;
     textureUrl: (typeof textureUrls)[number];
 } & BaseMapObject;
