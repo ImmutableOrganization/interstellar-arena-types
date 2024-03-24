@@ -222,3 +222,4 @@ export declare const deserializedEventMap: Record<SerializedEvent, keyof ServerT
 export declare const serializedEventMap: Record<keyof ServerToClient, string>;
 export declare const eventSerializer: (event: keyof ServerToClient) => string;
 export declare const serializedGunMap: Record<GunOption, string>;
+export declare const arrayOfNumbersToFixed: (arr: number[]) => (string | number)[];

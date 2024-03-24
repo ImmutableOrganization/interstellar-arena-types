@@ -191,3 +191,14 @@ export const serializedGunMap = {
     UMP: '24',
     W1200: '25',
 };
+export const arrayOfNumbersToFixed = (arr) => {
+    return arr.map((n) => {
+        if (isNaN(n)) {
+            // console.log('NAN', arr);
+            return n;
+        }
+        else {
+            return n.toFixed(2);
+        }
+    });
+};
