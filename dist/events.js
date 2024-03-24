@@ -3,6 +3,7 @@ export var SocketEvents;
     SocketEvents["Game"] = "game";
     SocketEvents["Lobbies"] = "lobbies";
     SocketEvents["Error"] = "error";
+    SocketEvents["Tick"] = "tick";
 })(SocketEvents || (SocketEvents = {}));
 export var GameEvents;
 (function (GameEvents) {
@@ -31,6 +32,7 @@ export var SerializedSocketEvents;
     SerializedSocketEvents["Game"] = "0";
     SerializedSocketEvents["Lobbies"] = "1";
     SerializedSocketEvents["Error"] = "2";
+    SerializedSocketEvents["Tick"] = "3";
 })(SerializedSocketEvents || (SerializedSocketEvents = {}));
 export var SerializedGameEvents;
 (function (SerializedGameEvents) {
@@ -51,8 +53,7 @@ export var SerializedGameEvents;
     SerializedGameEvents["UserDisconnected"] = "14";
     SerializedGameEvents["PlayerStatus"] = "15";
     SerializedGameEvents["ZombieAttack"] = "16";
-    SerializedGameEvents["ScoreBoardUpdate"] = "17";
-    SerializedGameEvents["PointsUpdate"] = "18";
+    SerializedGameEvents["PointsUpdate"] = "17";
 })(SerializedGameEvents || (SerializedGameEvents = {}));
 export var LobbyEvents;
 (function (LobbyEvents) {
@@ -92,6 +93,23 @@ export var ErrorEvents;
     ErrorEvents["NoPlayerFound"] = "no player found";
     ErrorEvents["Dead"] = "dead";
 })(ErrorEvents || (ErrorEvents = {}));
+export var EventConstants;
+(function (EventConstants) {
+    EventConstants["END_OF_EVENT"] = "|";
+})(EventConstants || (EventConstants = {}));
+export function combineEvents(events) {
+    return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${combineEvents(events)}`;
+}
+export const encodeFireLaser = (gun, data) => {
+    const start = data.start.toArray();
+    return `${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
+};
+export const encodePlayerStatus = (data) => {
+    return `${data.playerId}$${data.health}$${data.dead}`;
+};
+export const encodeCharacterMove = (data) => {
+    return `${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${JSON.stringify(data.keysPressed)}`;
+};
 export const deserializedEventMap = {
     '000': `${SocketEvents.Game}:${GameEvents.FireLaser}`,
     '001': `${SocketEvents.Game}:${GameEvents.FireLaserHit}`,
@@ -110,8 +128,7 @@ export const deserializedEventMap = {
     '014': `${SocketEvents.Game}:${GameEvents.UserDisconnected}`,
     '015': `${SocketEvents.Game}:${GameEvents.PlayerStatus}`,
     '016': `${SocketEvents.Game}:${GameEvents.ZombieAttack}`,
-    '017': `${SocketEvents.Game}:${GameEvents.ScoreBoardUpdate}`,
-    '018': `${SocketEvents.Game}:${GameEvents.PointsUpdate}`,
+    '017': `${SocketEvents.Game}:${GameEvents.PointsUpdate}`,
     '100': `${SocketEvents.Lobbies}:${LobbyEvents.CreatedLobby}`,
     '101': `${SocketEvents.Lobbies}:${LobbyEvents.JoinedLobby}`,
     '102': `${SocketEvents.Lobbies}:${LobbyEvents.NewPlayerJoinedLobby}`,
@@ -144,7 +161,6 @@ export const serializedEventMap = {
     'game:userDisconnected': SerializedSocketEvents.Game + SerializedGameEvents.UserDisconnected,
     'game:playerStatus': SerializedSocketEvents.Game + SerializedGameEvents.PlayerStatus,
     'game:zombieAttack': SerializedSocketEvents.Game + SerializedGameEvents.ZombieAttack,
-    'game:scoreBoardUpdate': SerializedSocketEvents.Game + SerializedGameEvents.ScoreBoardUpdate,
     'game:pointsUpdate': SerializedSocketEvents.Game + SerializedGameEvents.PointsUpdate,
     'lobbies:createdLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.CreatedLobby,
     'lobbies:joinedLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.JoinedLobby,
@@ -198,7 +214,7 @@ export const arrayOfNumbersToFixed = (arr) => {
             return n;
         }
         else {
-            return n.toFixed(2);
+            return n.toFixed(0);
         }
     });
 };

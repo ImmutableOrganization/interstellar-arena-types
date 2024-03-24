@@ -117,7 +117,6 @@ export type GameServerToClient = {
     'game:gameEnded': (value: lobby) => void;
     'game:getEntitiesCallback': (value: GetEntitiesCallbackParams) => void;
     'game:entities': (value: EntitiesParams) => void;
-    'game:scoreBoardUpdate': (value: ScoreBoardUpdateParams) => void;
 };
 export type ServerToClient = {
     'game:userDisconnected': (socketID: string) => void;
@@ -134,7 +133,8 @@ export type ServerToClient = {
 export declare enum SocketEvents {
     Game = "game",
     Lobbies = "lobbies",
-    Error = "error"
+    Error = "error",
+    Tick = "tick"
 }
 export declare enum GameEvents {
     FireLaser = "fireLaser",
@@ -160,7 +160,8 @@ export declare enum GameEvents {
 export declare enum SerializedSocketEvents {
     Game = "0",
     Lobbies = "1",
-    Error = "2"
+    Error = "2",
+    Tick = "3"
 }
 export declare enum SerializedGameEvents {
     FireLaser = "00",
@@ -180,8 +181,7 @@ export declare enum SerializedGameEvents {
     UserDisconnected = "14",
     PlayerStatus = "15",
     ZombieAttack = "16",
-    ScoreBoardUpdate = "17",
-    PointsUpdate = "18"
+    PointsUpdate = "17"
 }
 export declare enum LobbyEvents {
     CreatedLobby = "createdLobby",
@@ -218,6 +218,14 @@ export declare enum ErrorEvents {
     Dead = "dead"
 }
 export type SerializedEvent = `${SerializedSocketEvents.Game}${SerializedGameEvents}` | `${SerializedSocketEvents.Lobbies}${SerializedLobbyEvents}` | `${SerializedSocketEvents.Error}${SerializedErrorEvents}`;
+export declare enum EventConstants {
+    END_OF_EVENT = "|"
+}
+export type SerializedTickEvent = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${string}`;
+export declare function combineEvents(events: SerializedEvent[]): SerializedTickEvent;
+export declare const encodeFireLaser: (gun: GunOption, data: Parameters<ServerToClient['game:fireLaser']>['0']) => string;
+export declare const encodePlayerStatus: (data: Parameters<ServerToClient['game:playerStatus']>['0']) => string;
+export declare const encodeCharacterMove: (data: Parameters<ServerToClient['game:characterMove']>['0']) => string;
 export declare const deserializedEventMap: Record<SerializedEvent, keyof ServerToClient>;
 export declare const serializedEventMap: Record<keyof ServerToClient, string>;
 export declare const eventSerializer: (event: keyof ServerToClient) => string;

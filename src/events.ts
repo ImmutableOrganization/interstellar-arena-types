@@ -119,7 +119,6 @@ export type LobbyServerToClient = {
     'game:gameEnded': (value: lobby) => void;
     'game:getEntitiesCallback': (value: GetEntitiesCallbackParams) => void;
     'game:entities': (value: EntitiesParams) => void;
-    'game:scoreBoardUpdate': (value: ScoreBoardUpdateParams) => void;
   };
 
 export type ServerToClient = {
@@ -141,6 +140,7 @@ export type ServerToClient = {
     Game = 'game',
     Lobbies = 'lobbies',
     Error = 'error',
+    Tick = 'tick',
   }
   export enum GameEvents {
     FireLaser = 'fireLaser',
@@ -168,6 +168,7 @@ export type ServerToClient = {
     Game = '0',
     Lobbies = '1',
     Error = '2',
+    Tick = '3',
   }
   
   export enum SerializedGameEvents {
@@ -188,8 +189,7 @@ export type ServerToClient = {
     UserDisconnected = '14',
     PlayerStatus = '15',
     ZombieAttack = '16',
-    ScoreBoardUpdate = '17',
-    PointsUpdate = '18',
+    PointsUpdate = '17',
   }
   
   export enum LobbyEvents {
@@ -235,7 +235,30 @@ export type ServerToClient = {
     | `${SerializedSocketEvents.Lobbies}${SerializedLobbyEvents}`
     | `${SerializedSocketEvents.Error}${SerializedErrorEvents}`;
   
+    export enum EventConstants {
+      END_OF_EVENT = '|',
+    }
 
+    export type SerializedTickEvent = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${string}`;
+
+    export function combineEvents(events: SerializedEvent[]): SerializedTickEvent {
+      return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${combineEvents(events)}` as SerializedTickEvent;
+    }
+
+    export const encodeFireLaser = (gun: GunOption, data: Parameters<ServerToClient['game:fireLaser']>['0']) => {
+      const start = data.start.toArray() as number[];
+      return `${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
+    };
+    export const encodePlayerStatus = (data: Parameters<ServerToClient['game:playerStatus']>['0']) => {
+      return `${data.playerId}$${data.health}$${data.dead}`;
+    };
+    export const encodeCharacterMove = (data: Parameters<ServerToClient['game:characterMove']>['0']) => {
+      return `${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(
+        data.cameraRotation,
+      ).join(',')}$${JSON.stringify(data.keysPressed)}`;
+    };
+
+    
   export const deserializedEventMap: Record<SerializedEvent, keyof ServerToClient> = {
     '000': `${SocketEvents.Game}:${GameEvents.FireLaser}` as const,
     '001': `${SocketEvents.Game}:${GameEvents.FireLaserHit}`,
@@ -254,8 +277,7 @@ export type ServerToClient = {
     '014': `${SocketEvents.Game}:${GameEvents.UserDisconnected}`,
     '015': `${SocketEvents.Game}:${GameEvents.PlayerStatus}`,
     '016': `${SocketEvents.Game}:${GameEvents.ZombieAttack}`,
-    '017': `${SocketEvents.Game}:${GameEvents.ScoreBoardUpdate}`,
-    '018': `${SocketEvents.Game}:${GameEvents.PointsUpdate}`,
+    '017': `${SocketEvents.Game}:${GameEvents.PointsUpdate}`,
     '100': `${SocketEvents.Lobbies}:${LobbyEvents.CreatedLobby}`,
     '101': `${SocketEvents.Lobbies}:${LobbyEvents.JoinedLobby}`,
     '102': `${SocketEvents.Lobbies}:${LobbyEvents.NewPlayerJoinedLobby}`,
@@ -289,7 +311,6 @@ export type ServerToClient = {
     'game:userDisconnected': SerializedSocketEvents.Game + SerializedGameEvents.UserDisconnected,
     'game:playerStatus': SerializedSocketEvents.Game + SerializedGameEvents.PlayerStatus,
     'game:zombieAttack': SerializedSocketEvents.Game + SerializedGameEvents.ZombieAttack,
-    'game:scoreBoardUpdate': SerializedSocketEvents.Game + SerializedGameEvents.ScoreBoardUpdate,
     'game:pointsUpdate': SerializedSocketEvents.Game + SerializedGameEvents.PointsUpdate,
     'lobbies:createdLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.CreatedLobby,
     'lobbies:joinedLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.JoinedLobby,
@@ -349,3 +370,6 @@ export type ServerToClient = {
       }
     });
   };
+  
+
+
