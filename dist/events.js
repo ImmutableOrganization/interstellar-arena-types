@@ -98,7 +98,7 @@ export var EventConstants;
     EventConstants["END_OF_EVENT"] = "|";
 })(EventConstants || (EventConstants = {}));
 export function combineEvents(events) {
-    return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${combineEvents(events)}`;
+    return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${events.join('#')}`;
 }
 export const encodeFireLaser = (gun, data) => {
     const start = data.start.toArray();
