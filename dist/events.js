@@ -36,7 +36,6 @@ export var GameEvents;
     GameEvents["UserDisconnected"] = "userDisconnected";
     GameEvents["PlayerStatus"] = "playerStatus";
     GameEvents["ZombieAttack"] = "zombieAttack";
-    GameEvents["ScoreBoardUpdate"] = "scoreBoardUpdate";
     GameEvents["PointsUpdate"] = "pointsUpdate";
 })(GameEvents || (GameEvents = {}));
 export var SerializedGameEvents;
@@ -152,24 +151,24 @@ const decodeEventMap = {
     [SerializedGameEvents.PointsUpdate]: decodePointsUpdate,
 };
 export const encodeEventMap = {
-    [SerializedGameEvents.FireLaser]: encodeFireLaser,
-    [SerializedGameEvents.PlayerStatus]: encodePlayerStatus,
-    [SerializedGameEvents.CharacterMove]: encodeCharacterMove,
-    [SerializedGameEvents.FireLaserHit]: encodeFireLaserHit,
-    [SerializedGameEvents.FireLaserHitZombie]: encodeFireLaserHitZombie,
-    [SerializedGameEvents.PlayerRespawn]: encodePlayerRespawn,
-    [SerializedGameEvents.PlayerSwitchWeapon]: encodePlayerSwitchWeapon,
-    [SerializedGameEvents.PlayerReloadWeaponFired]: encodePlayerReloadWeaponFired,
-    [SerializedGameEvents.PlayerReloadWeaponComplete]: encodePlayerReloadWeaponComplete,
-    [SerializedGameEvents.GetEntitiesCallback]: encodeGetEntitiesCallback,
-    [SerializedGameEvents.PlayerBuyItem]: encodePlayerBuyItem,
-    [SerializedGameEvents.GameStarted]: encodeGameStarted,
-    [SerializedGameEvents.GameEnded]: encodeGameEnded,
-    [SerializedGameEvents.Entities]: encodeEntities,
-    [SerializedGameEvents.ZombieRoundUpdate]: encodeZombieRoundUpdate,
-    [SerializedGameEvents.UserDisconnected]: encodeUserDisconnected,
-    [SerializedGameEvents.ZombieAttack]: encodeZombieAttack,
-    [SerializedGameEvents.PointsUpdate]: encodePointsUpdate,
+    [GameEvents.FireLaser]: encodeFireLaser,
+    [GameEvents.PlayerStatus]: encodePlayerStatus,
+    [GameEvents.CharacterMove]: encodeCharacterMove,
+    [GameEvents.FireLaserHit]: encodeFireLaserHit,
+    [GameEvents.FireLaserHitZombie]: encodeFireLaserHitZombie,
+    [GameEvents.PlayerRespawn]: encodePlayerRespawn,
+    [GameEvents.PlayerSwitchWeapon]: encodePlayerSwitchWeapon,
+    [GameEvents.PlayerReloadWeaponFired]: encodePlayerReloadWeaponFired,
+    [GameEvents.PlayerReloadWeaponComplete]: encodePlayerReloadWeaponComplete,
+    [GameEvents.GetEntitiesCallback]: encodeGetEntitiesCallback,
+    [GameEvents.PlayerBuyItem]: encodePlayerBuyItem,
+    [GameEvents.GameStarted]: encodeGameStarted,
+    [GameEvents.GameEnded]: encodeGameEnded,
+    [GameEvents.Entities]: encodeEntities,
+    [GameEvents.ZombieRoundUpdate]: encodeZombieRoundUpdate,
+    [GameEvents.UserDisconnected]: encodeUserDisconnected,
+    [GameEvents.ZombieAttack]: encodeZombieAttack,
+    [GameEvents.PointsUpdate]: encodePointsUpdate,
 };
 export const encodeEvent = (event) => {
     return serializedEventMap[event];

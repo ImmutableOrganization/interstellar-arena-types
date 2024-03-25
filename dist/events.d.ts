@@ -33,7 +33,6 @@ export declare enum GameEvents {
     UserDisconnected = "userDisconnected",
     PlayerStatus = "playerStatus",
     ZombieAttack = "zombieAttack",
-    ScoreBoardUpdate = "scoreBoardUpdate",
     PointsUpdate = "pointsUpdate"
 }
 export declare enum SerializedGameEvents {
@@ -94,7 +93,7 @@ export type SerializedEvent = SerializedGameEvents | SerializedLobbyEvents | Ser
 export declare const serializedEventMap: Record<keyof ServerToClient, string>;
 export type SerializedTickEvent = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${string}`;
 type EncoderFunction = typeof encodeFireLaser | typeof encodeFireLaserHit | typeof encodeFireLaserHitZombie | typeof encodeCharacterMove | typeof encodePlayerStatus | typeof encodePlayerRespawn | typeof encodePlayerSwitchWeapon | typeof encodePlayerReloadWeaponFired | typeof encodePlayerReloadWeaponComplete | typeof encodeGetEntitiesCallback | typeof encodePlayerBuyItem | typeof encodeGameStarted | typeof encodeGameEnded | typeof encodeEntities | typeof encodeZombieRoundUpdate | typeof encodeUserDisconnected | typeof encodeZombieAttack | typeof encodePointsUpdate;
-export declare const encodeEventMap: Record<SerializedGameEvents, EncoderFunction>;
+export declare const encodeEventMap: Record<GameEvents, EncoderFunction>;
 export declare const encodeEvent: (event: keyof ServerToClient) => string;
 export declare function encodeEncodedEvents(events: SerializedEvent[]): SerializedTickEvent;
 export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) => ({

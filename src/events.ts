@@ -37,7 +37,6 @@ export enum GameEvents {
   UserDisconnected = 'userDisconnected',
   PlayerStatus = 'playerStatus',
   ZombieAttack = 'zombieAttack',
-  ScoreBoardUpdate = 'scoreBoardUpdate',
   PointsUpdate = 'pointsUpdate',
 }
 
@@ -166,25 +165,25 @@ const decodeEventMap: Record<SerializedGameEvents, DecoderFunction> = {
 } as const;
 
 
-export const encodeEventMap: Record<SerializedGameEvents, EncoderFunction> = {
-  [SerializedGameEvents.FireLaser]: encodeFireLaser,
-  [SerializedGameEvents.PlayerStatus]: encodePlayerStatus,
-  [SerializedGameEvents.CharacterMove]: encodeCharacterMove,
-  [SerializedGameEvents.FireLaserHit]: encodeFireLaserHit,
-  [SerializedGameEvents.FireLaserHitZombie]: encodeFireLaserHitZombie,
-  [SerializedGameEvents.PlayerRespawn]: encodePlayerRespawn,
-  [SerializedGameEvents.PlayerSwitchWeapon]: encodePlayerSwitchWeapon,
-  [SerializedGameEvents.PlayerReloadWeaponFired]: encodePlayerReloadWeaponFired,
-  [SerializedGameEvents.PlayerReloadWeaponComplete]: encodePlayerReloadWeaponComplete,
-  [SerializedGameEvents.GetEntitiesCallback]: encodeGetEntitiesCallback,
-  [SerializedGameEvents.PlayerBuyItem]: encodePlayerBuyItem,
-  [SerializedGameEvents.GameStarted]: encodeGameStarted,
-  [SerializedGameEvents.GameEnded]: encodeGameEnded,
-  [SerializedGameEvents.Entities]: encodeEntities,
-  [SerializedGameEvents.ZombieRoundUpdate]: encodeZombieRoundUpdate,
-  [SerializedGameEvents.UserDisconnected]: encodeUserDisconnected,
-  [SerializedGameEvents.ZombieAttack]: encodeZombieAttack,
-  [SerializedGameEvents.PointsUpdate]: encodePointsUpdate,
+export const encodeEventMap: Record<GameEvents, EncoderFunction> = {
+  [GameEvents.FireLaser]: encodeFireLaser,
+  [GameEvents.PlayerStatus]: encodePlayerStatus,
+  [GameEvents.CharacterMove]: encodeCharacterMove,
+  [GameEvents.FireLaserHit]: encodeFireLaserHit,
+  [GameEvents.FireLaserHitZombie]: encodeFireLaserHitZombie,
+  [GameEvents.PlayerRespawn]: encodePlayerRespawn,
+  [GameEvents.PlayerSwitchWeapon]: encodePlayerSwitchWeapon,
+  [GameEvents.PlayerReloadWeaponFired]: encodePlayerReloadWeaponFired,
+  [GameEvents.PlayerReloadWeaponComplete]: encodePlayerReloadWeaponComplete,
+  [GameEvents.GetEntitiesCallback]: encodeGetEntitiesCallback,
+  [GameEvents.PlayerBuyItem]: encodePlayerBuyItem,
+  [GameEvents.GameStarted]: encodeGameStarted,
+  [GameEvents.GameEnded]: encodeGameEnded,
+  [GameEvents.Entities]: encodeEntities,
+  [GameEvents.ZombieRoundUpdate]: encodeZombieRoundUpdate,
+  [GameEvents.UserDisconnected]: encodeUserDisconnected,
+  [GameEvents.ZombieAttack]: encodeZombieAttack,
+  [GameEvents.PointsUpdate]: encodePointsUpdate,
 } as const;
 
 export const encodeEvent = (event: keyof ServerToClient) => {
