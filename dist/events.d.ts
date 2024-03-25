@@ -1,140 +1,19 @@
-import { Laser, SpawnableEntity } from "gameObjects.js";
-import { lobby } from "lobby.js";
-import { GunOption } from "userStats.js";
-export type NewPlayerJoinedLobbyParams = {
-    player: lobby['players'][string];
-    scoreBoard: lobby['scoreBoard'];
-};
-export type LobbyServerToClient = {
-    'lobbies:newPlayerJoinedLobby': (value: NewPlayerJoinedLobbyParams) => void;
-    'lobbies:getLobbiesCallback': (value: Record<string, lobby>) => void;
-    'lobbies:leftLobby': () => void;
-    'lobbies:joinedLobby': (value: lobby) => void;
-    'lobbies:createdLobby': (value: lobby) => void;
-};
-export type EntityChangeSet = {
-    added: SpawnableEntity[];
-    removed: string[];
-    modified: Record<string, Partial<SpawnableEntity>>;
-};
-export type PlayerBuyItemParams = {
-    playerId: string;
-    item: GunOption;
-    points: number;
-};
-export type SendCharacterMoveParams = {
-    lobbyID: string;
-    playerId: string;
-    movement: {
-        keysPressed: Record<string, boolean>;
-        position: [number, number, number];
-        rotation: [number, number, number];
-        cameraRotation: [number, number, number];
-    };
-};
-export type BuyItemParams = {
-    lobbyID: string;
-    playerId: string;
-    itemID: string;
-};
-export type ReloadWeaponParams = {
-    lobbyID: string;
-    playerId: string;
-};
-export type FireLaserParams = {
-    lobbyID: string;
-    playerId: string;
-};
-export type ZombieAttackParams = {
-    zombie: SpawnableEntity;
-};
-export type FireLaserHitZombieParams = {
-    laserShooterID: string;
-    hitZombieID: string;
-};
-export type FireLaserHitParams = {
-    hitPlayerID: string;
-    hitPlayerHealth: number;
-    laserShooterID: string;
-};
-export type PlayerReloadWeaponFiredParams = {
-    playerId: string;
-};
-export type PlayerReloadWeaponCompleteParams = {
-    playerId: string;
-    gunAmmo: number;
-};
-export type PlayerStatusParams = {
-    playerId: string;
-    health: number;
-    dead: boolean;
-};
-export type PlayerSwitchWeaponParams = {
-    playerId: string;
-    gun: GunOption;
-};
-export type CharacterMoveParams = {
-    socketId: string;
-    keysPressed: Record<string, boolean>;
-    position: [number, number, number];
-    rotation: [number, number, number];
-    cameraRotation: [number, number, number];
-};
-export type PlayerRespawnParams = {
-    _player: lobby['players'][string];
-    _laserShooterID: string;
-    _scoreboard: lobby['scoreBoard'];
-};
-export type GetEntitiesCallbackParams = {
-    entities: lobby['entities'];
-};
-export type EntitiesParams = {
-    added: SpawnableEntity[];
-    removed: string[];
-    modified: Record<string, Partial<SpawnableEntity>>;
-};
-export type ScoreBoardUpdateParams = {
-    scoreBoard: lobby['scoreBoard'];
-};
-export type GetEntitiesParams = {
-    lobbyID: string;
-};
-export type GameServerToClient = {
-    'game:playerBuyItem': (value: PlayerBuyItemParams) => void;
-    'game:zombieAttack': (value: ZombieAttackParams) => void;
-    'game:fireLaserHitZombie': (value: FireLaserHitZombieParams) => void;
-    'game:fireLaserHit': (value: FireLaserHitParams) => void;
-    'game:playerReloadWeaponFired': (value: PlayerReloadWeaponFiredParams) => void;
-    'game:playerReloadWeaponComplete': (value: PlayerReloadWeaponCompleteParams) => void;
-    'game:playerStatus': (value: PlayerStatusParams) => void;
-    'game:playerSwitchWeapon': (value: PlayerSwitchWeaponParams) => void;
-    'game:characterMove': (value: CharacterMoveParams) => void;
-    'game:playerRespawn': (value: PlayerRespawnParams) => void;
-    'game:fireLaser': (laser: Laser, ammo: number) => void;
-    'game:pointsUpdate': (value: lobby['game']['zombie']['points']) => void;
-    'game:zombieRoundUpdate': (value: lobby['game']['zombie']['roundData']) => void;
-    'game:gameStarted': (value: lobby) => void;
-    'game:gameEnded': (value: lobby) => void;
-    'game:getEntitiesCallback': (value: GetEntitiesCallbackParams) => void;
-    'game:entities': (value: EntitiesParams) => void;
-};
-export type ServerToClient = {
-    'game:userDisconnected': (socketID: string) => void;
-} & LobbyServerToClient & GameServerToClient & {
-    'error:lobbyIdAlreadyExists': () => void;
-    'error:lobbyNotFound': () => void;
-    'error:playerNotInLobby': () => void;
-    'error:lobbyFull': () => void;
-    'error:playerInLobbyAlready': () => void;
-    'error:no lobby found': () => void;
-    'error:no player found': () => void;
-    'error:dead': () => void;
-};
+import { encodeFireLaser, encodeFireLaserHit, encodeFireLaserHitZombie, encodeCharacterMove, encodePlayerStatus, encodePlayerRespawn, encodePlayerSwitchWeapon, encodePlayerReloadWeaponFired, encodePlayerReloadWeaponComplete, encodeGetEntitiesCallback, encodePlayerBuyItem, encodeGameStarted, encodeGameEnded, encodeEntities, encodeZombieRoundUpdate, encodeUserDisconnected, encodeZombieAttack, encodePointsUpdate } from "eventCoders.js";
+import { ServerToClient } from "socket.js";
+export declare enum EventConstants {
+    END_OF_EVENT = "|"
+}
 export declare enum SocketEvents {
     Game = "game",
     Lobbies = "lobbies",
     Error = "error",
     Tick = "tick"
+}
+export declare enum SerializedSocketEvents {
+    Game = "0",
+    Lobbies = "1",
+    Error = "2",
+    Tick = "3"
 }
 export declare enum GameEvents {
     FireLaser = "fireLaser",
@@ -156,12 +35,6 @@ export declare enum GameEvents {
     ZombieAttack = "zombieAttack",
     ScoreBoardUpdate = "scoreBoardUpdate",
     PointsUpdate = "pointsUpdate"
-}
-export declare enum SerializedSocketEvents {
-    Game = "0",
-    Lobbies = "1",
-    Error = "2",
-    Tick = "3"
 }
 export declare enum SerializedGameEvents {
     FireLaser = "00",
@@ -197,16 +70,6 @@ export declare enum SerializedLobbyEvents {
     LeftLobby = "03",
     GetLobbiesCallback = "04"
 }
-export declare enum SerializedErrorEvents {
-    LobbyIdAlreadyExists = "0",
-    LobbyNotFound = "1",
-    PlayerNotInLobby = "2",
-    LobbyFull = "3",
-    PlayerInLobbyAlready = "4",
-    NoLobbyFound = "5",
-    NoPlayerFound = "6",
-    Dead = "7"
-}
 export declare enum ErrorEvents {
     LobbyIdAlreadyExists = "lobbyIdAlreadyExists",
     LobbyNotFound = "lobbyNotFound",
@@ -217,17 +80,55 @@ export declare enum ErrorEvents {
     NoPlayerFound = "no player found",
     Dead = "dead"
 }
-export type SerializedEvent = `${SerializedSocketEvents.Game}${SerializedGameEvents}` | `${SerializedSocketEvents.Lobbies}${SerializedLobbyEvents}` | `${SerializedSocketEvents.Error}${SerializedErrorEvents}`;
-export declare enum EventConstants {
-    END_OF_EVENT = "|"
+export declare enum SerializedErrorEvents {
+    LobbyIdAlreadyExists = "0",
+    LobbyNotFound = "1",
+    PlayerNotInLobby = "2",
+    LobbyFull = "3",
+    PlayerInLobbyAlready = "4",
+    NoLobbyFound = "5",
+    NoPlayerFound = "6",
+    Dead = "7"
 }
-export type SerializedTickEvent = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${string}`;
-export declare function combineEvents(events: SerializedEvent[]): SerializedTickEvent;
-export declare const encodeFireLaser: (gun: GunOption, data: Parameters<ServerToClient['game:fireLaser']>['0']) => string;
-export declare const encodePlayerStatus: (data: Parameters<ServerToClient['game:playerStatus']>['0']) => string;
-export declare const encodeCharacterMove: (data: Parameters<ServerToClient['game:characterMove']>['0']) => string;
-export declare const deserializedEventMap: Record<SerializedEvent, keyof ServerToClient>;
+export type SerializedEvent = SerializedGameEvents | SerializedLobbyEvents | SerializedErrorEvents;
 export declare const serializedEventMap: Record<keyof ServerToClient, string>;
-export declare const eventSerializer: (event: keyof ServerToClient) => string;
-export declare const serializedGunMap: Record<GunOption, string>;
-export declare const arrayOfNumbersToFixed: (arr: number[]) => (string | number)[];
+export type SerializedTickEvent = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${string}`;
+type EncoderFunction = typeof encodeFireLaser | typeof encodeFireLaserHit | typeof encodeFireLaserHitZombie | typeof encodeCharacterMove | typeof encodePlayerStatus | typeof encodePlayerRespawn | typeof encodePlayerSwitchWeapon | typeof encodePlayerReloadWeaponFired | typeof encodePlayerReloadWeaponComplete | typeof encodeGetEntitiesCallback | typeof encodePlayerBuyItem | typeof encodeGameStarted | typeof encodeGameEnded | typeof encodeEntities | typeof encodeZombieRoundUpdate | typeof encodeUserDisconnected | typeof encodeZombieAttack | typeof encodePointsUpdate;
+export declare const encodeEventMap: Record<SerializedGameEvents, EncoderFunction>;
+export declare const encodeEvent: (event: keyof ServerToClient) => string;
+export declare function encodeEncodedEvents(events: SerializedEvent[]): SerializedTickEvent;
+export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) => ({
+    gun: "AK-47" | "AKMS" | "AK-101" | "M4 Rifle" | "M4 Carbine" | "M4 Commando" | "Browning HP" | "P226" | "G18" | "M9" | "Desert Eagle" | ".357 Magnum" | "44 Magnum" | "S&W Model 36" | "Model 29" | "Mossberg 590" | "W1200" | "Sawed Off" | "Remington 870" | "M24" | "L96A1" | "N2 SRS" | "MP5K" | "MP5" | "MP7" | "UMP";
+    senderuuid: string;
+    position: [number, number, number];
+    rotation: [number, number, number];
+    start: import("three").Vector3;
+    hitPoint: import("three").Vector3;
+    name: string;
+} | {
+    socketId: string;
+    position: number[];
+    rotation: number[];
+    cameraRotation: number[];
+    keysPressed: any;
+} | {
+    hitPlayerID: string;
+    hitPlayerHealth: number;
+    laserShooterID: string;
+} | {
+    laserShooterID: string;
+    hitZombieID: string;
+} | {
+    playerId: string;
+} | {
+    entities: any;
+} | {
+    lobbyID: string;
+} | {
+    round: number;
+} | {
+    zombie: any;
+} | {
+    points: number;
+} | undefined)[];
+export {};

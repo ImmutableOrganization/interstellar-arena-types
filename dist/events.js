@@ -1,3 +1,8 @@
+import { encodeFireLaser, encodeFireLaserHit, encodeFireLaserHitZombie, encodeCharacterMove, encodePlayerStatus, encodePlayerRespawn, encodePlayerSwitchWeapon, encodePlayerReloadWeaponFired, encodePlayerReloadWeaponComplete, encodeGetEntitiesCallback, encodePlayerBuyItem, encodeGameStarted, encodeGameEnded, encodeEntities, encodeZombieRoundUpdate, encodeUserDisconnected, encodeZombieAttack, encodePointsUpdate, decodeFireLaser, decodeCharacterMove, decodePlayerStatus, decodeFireLaserHit, decodeFireLaserHitZombie, decodePlayerRespawn, decodePlayerSwitchWeapon, decodePlayerReloadWeaponFired, decodePlayerReloadWeaponComplete, decodeGetEntitiesCallback, decodePlayerBuyItem, decodeGameStarted, decodeGameEnded, decodeEntities, decodeZombieRoundUpdate, decodeUserDisconnected, decodeZombieAttack, decodePointsUpdate } from "eventCoders.js";
+export var EventConstants;
+(function (EventConstants) {
+    EventConstants["END_OF_EVENT"] = "|";
+})(EventConstants || (EventConstants = {}));
 export var SocketEvents;
 (function (SocketEvents) {
     SocketEvents["Game"] = "game";
@@ -5,6 +10,13 @@ export var SocketEvents;
     SocketEvents["Error"] = "error";
     SocketEvents["Tick"] = "tick";
 })(SocketEvents || (SocketEvents = {}));
+export var SerializedSocketEvents;
+(function (SerializedSocketEvents) {
+    SerializedSocketEvents["Game"] = "0";
+    SerializedSocketEvents["Lobbies"] = "1";
+    SerializedSocketEvents["Error"] = "2";
+    SerializedSocketEvents["Tick"] = "3";
+})(SerializedSocketEvents || (SerializedSocketEvents = {}));
 export var GameEvents;
 (function (GameEvents) {
     GameEvents["FireLaser"] = "fireLaser";
@@ -27,13 +39,6 @@ export var GameEvents;
     GameEvents["ScoreBoardUpdate"] = "scoreBoardUpdate";
     GameEvents["PointsUpdate"] = "pointsUpdate";
 })(GameEvents || (GameEvents = {}));
-export var SerializedSocketEvents;
-(function (SerializedSocketEvents) {
-    SerializedSocketEvents["Game"] = "0";
-    SerializedSocketEvents["Lobbies"] = "1";
-    SerializedSocketEvents["Error"] = "2";
-    SerializedSocketEvents["Tick"] = "3";
-})(SerializedSocketEvents || (SerializedSocketEvents = {}));
 export var SerializedGameEvents;
 (function (SerializedGameEvents) {
     SerializedGameEvents["FireLaser"] = "00";
@@ -71,17 +76,6 @@ export var SerializedLobbyEvents;
     SerializedLobbyEvents["LeftLobby"] = "03";
     SerializedLobbyEvents["GetLobbiesCallback"] = "04";
 })(SerializedLobbyEvents || (SerializedLobbyEvents = {}));
-export var SerializedErrorEvents;
-(function (SerializedErrorEvents) {
-    SerializedErrorEvents["LobbyIdAlreadyExists"] = "0";
-    SerializedErrorEvents["LobbyNotFound"] = "1";
-    SerializedErrorEvents["PlayerNotInLobby"] = "2";
-    SerializedErrorEvents["LobbyFull"] = "3";
-    SerializedErrorEvents["PlayerInLobbyAlready"] = "4";
-    SerializedErrorEvents["NoLobbyFound"] = "5";
-    SerializedErrorEvents["NoPlayerFound"] = "6";
-    SerializedErrorEvents["Dead"] = "7";
-})(SerializedErrorEvents || (SerializedErrorEvents = {}));
 export var ErrorEvents;
 (function (ErrorEvents) {
     ErrorEvents["LobbyIdAlreadyExists"] = "lobbyIdAlreadyExists";
@@ -93,56 +87,17 @@ export var ErrorEvents;
     ErrorEvents["NoPlayerFound"] = "no player found";
     ErrorEvents["Dead"] = "dead";
 })(ErrorEvents || (ErrorEvents = {}));
-export var EventConstants;
-(function (EventConstants) {
-    EventConstants["END_OF_EVENT"] = "|";
-})(EventConstants || (EventConstants = {}));
-export function combineEvents(events) {
-    return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${events.join('#')}`;
-}
-export const encodeFireLaser = (gun, data) => {
-    const start = data.start.toArray();
-    return `${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
-};
-export const encodePlayerStatus = (data) => {
-    return `${data.playerId}$${data.health}$${data.dead}`;
-};
-export const encodeCharacterMove = (data) => {
-    return `${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${JSON.stringify(data.keysPressed)}`;
-};
-export const deserializedEventMap = {
-    '000': `${SocketEvents.Game}:${GameEvents.FireLaser}`,
-    '001': `${SocketEvents.Game}:${GameEvents.FireLaserHit}`,
-    '002': `${SocketEvents.Game}:${GameEvents.FireLaserHitZombie}`,
-    '003': `${SocketEvents.Game}:${GameEvents.CharacterMove}`,
-    '004': `${SocketEvents.Game}:${GameEvents.PlayerRespawn}`,
-    '005': `${SocketEvents.Game}:${GameEvents.PlayerSwitchWeapon}`,
-    '006': `${SocketEvents.Game}:${GameEvents.PlayerReloadWeaponFired}`,
-    '007': `${SocketEvents.Game}:${GameEvents.PlayerReloadWeaponComplete}`,
-    '008': `${SocketEvents.Game}:${GameEvents.GetEntitiesCallback}`,
-    '009': `${SocketEvents.Game}:${GameEvents.PlayerBuyItem}`,
-    '010': `${SocketEvents.Game}:${GameEvents.GameStarted}`,
-    '011': `${SocketEvents.Game}:${GameEvents.GameEnded}`,
-    '012': `${SocketEvents.Game}:${GameEvents.Entities}`,
-    '013': `${SocketEvents.Game}:${GameEvents.ZombieRoundUpdate}`,
-    '014': `${SocketEvents.Game}:${GameEvents.UserDisconnected}`,
-    '015': `${SocketEvents.Game}:${GameEvents.PlayerStatus}`,
-    '016': `${SocketEvents.Game}:${GameEvents.ZombieAttack}`,
-    '017': `${SocketEvents.Game}:${GameEvents.PointsUpdate}`,
-    '100': `${SocketEvents.Lobbies}:${LobbyEvents.CreatedLobby}`,
-    '101': `${SocketEvents.Lobbies}:${LobbyEvents.JoinedLobby}`,
-    '102': `${SocketEvents.Lobbies}:${LobbyEvents.NewPlayerJoinedLobby}`,
-    '103': `${SocketEvents.Lobbies}:${LobbyEvents.LeftLobby}`,
-    '104': `${SocketEvents.Lobbies}:${LobbyEvents.GetLobbiesCallback}`,
-    '20': `${SocketEvents.Error}:${ErrorEvents.LobbyIdAlreadyExists}`,
-    '21': `${SocketEvents.Error}:${ErrorEvents.LobbyNotFound}`,
-    '22': `${SocketEvents.Error}:${ErrorEvents.PlayerNotInLobby}`,
-    '23': `${SocketEvents.Error}:${ErrorEvents.LobbyFull}`,
-    '24': `${SocketEvents.Error}:${ErrorEvents.PlayerInLobbyAlready}`,
-    '25': `${SocketEvents.Error}:${ErrorEvents.NoLobbyFound}`,
-    '26': `${SocketEvents.Error}:${ErrorEvents.NoPlayerFound}`,
-    '27': `${SocketEvents.Error}:${ErrorEvents.Dead}`,
-};
+export var SerializedErrorEvents;
+(function (SerializedErrorEvents) {
+    SerializedErrorEvents["LobbyIdAlreadyExists"] = "0";
+    SerializedErrorEvents["LobbyNotFound"] = "1";
+    SerializedErrorEvents["PlayerNotInLobby"] = "2";
+    SerializedErrorEvents["LobbyFull"] = "3";
+    SerializedErrorEvents["PlayerInLobbyAlready"] = "4";
+    SerializedErrorEvents["NoLobbyFound"] = "5";
+    SerializedErrorEvents["NoPlayerFound"] = "6";
+    SerializedErrorEvents["Dead"] = "7";
+})(SerializedErrorEvents || (SerializedErrorEvents = {}));
 export const serializedEventMap = {
     'game:fireLaser': SerializedSocketEvents.Game + SerializedGameEvents.FireLaser,
     'game:fireLaserHit': SerializedSocketEvents.Game + SerializedGameEvents.FireLaserHit,
@@ -176,45 +131,78 @@ export const serializedEventMap = {
     'error:no player found': SerializedSocketEvents.Error + SerializedErrorEvents.NoPlayerFound,
     'error:dead': SerializedSocketEvents.Error + SerializedErrorEvents.Dead,
 };
-export const eventSerializer = (event) => {
+const decodeEventMap = {
+    [SerializedGameEvents.FireLaser]: decodeFireLaser,
+    [SerializedGameEvents.PlayerStatus]: decodePlayerStatus,
+    [SerializedGameEvents.CharacterMove]: decodeCharacterMove,
+    [SerializedGameEvents.FireLaserHit]: decodeFireLaserHit,
+    [SerializedGameEvents.FireLaserHitZombie]: decodeFireLaserHitZombie,
+    [SerializedGameEvents.PlayerRespawn]: decodePlayerRespawn,
+    [SerializedGameEvents.PlayerSwitchWeapon]: decodePlayerSwitchWeapon,
+    [SerializedGameEvents.PlayerReloadWeaponFired]: decodePlayerReloadWeaponFired,
+    [SerializedGameEvents.PlayerReloadWeaponComplete]: decodePlayerReloadWeaponComplete,
+    [SerializedGameEvents.GetEntitiesCallback]: decodeGetEntitiesCallback,
+    [SerializedGameEvents.PlayerBuyItem]: decodePlayerBuyItem,
+    [SerializedGameEvents.GameStarted]: decodeGameStarted,
+    [SerializedGameEvents.GameEnded]: decodeGameEnded,
+    [SerializedGameEvents.Entities]: decodeEntities,
+    [SerializedGameEvents.ZombieRoundUpdate]: decodeZombieRoundUpdate,
+    [SerializedGameEvents.UserDisconnected]: decodeUserDisconnected,
+    [SerializedGameEvents.ZombieAttack]: decodeZombieAttack,
+    [SerializedGameEvents.PointsUpdate]: decodePointsUpdate,
+};
+export const encodeEventMap = {
+    [SerializedGameEvents.FireLaser]: encodeFireLaser,
+    [SerializedGameEvents.PlayerStatus]: encodePlayerStatus,
+    [SerializedGameEvents.CharacterMove]: encodeCharacterMove,
+    [SerializedGameEvents.FireLaserHit]: encodeFireLaserHit,
+    [SerializedGameEvents.FireLaserHitZombie]: encodeFireLaserHitZombie,
+    [SerializedGameEvents.PlayerRespawn]: encodePlayerRespawn,
+    [SerializedGameEvents.PlayerSwitchWeapon]: encodePlayerSwitchWeapon,
+    [SerializedGameEvents.PlayerReloadWeaponFired]: encodePlayerReloadWeaponFired,
+    [SerializedGameEvents.PlayerReloadWeaponComplete]: encodePlayerReloadWeaponComplete,
+    [SerializedGameEvents.GetEntitiesCallback]: encodeGetEntitiesCallback,
+    [SerializedGameEvents.PlayerBuyItem]: encodePlayerBuyItem,
+    [SerializedGameEvents.GameStarted]: encodeGameStarted,
+    [SerializedGameEvents.GameEnded]: encodeGameEnded,
+    [SerializedGameEvents.Entities]: encodeEntities,
+    [SerializedGameEvents.ZombieRoundUpdate]: encodeZombieRoundUpdate,
+    [SerializedGameEvents.UserDisconnected]: encodeUserDisconnected,
+    [SerializedGameEvents.ZombieAttack]: encodeZombieAttack,
+    [SerializedGameEvents.PointsUpdate]: encodePointsUpdate,
+};
+export const encodeEvent = (event) => {
     return serializedEventMap[event];
 };
-export const serializedGunMap = {
-    '.357 Magnum': '00',
-    '44 Magnum': '01',
-    'AK-101': '02',
-    'AK-47': '03',
-    AKMS: '04',
-    'Browning HP': '05',
-    'Desert Eagle': '06',
-    G18: '07',
-    L96A1: '08',
-    M24: '09',
-    'M4 Carbine': '10',
-    'M4 Commando': '11',
-    'M4 Rifle': '12',
-    M9: '13',
-    MP5: '14',
-    MP5K: '15',
-    MP7: '16',
-    'Model 29': '17',
-    'Mossberg 590': '18',
-    'N2 SRS': '19',
-    P226: '20',
-    'Remington 870': '21',
-    'S&W Model 36': '22',
-    'Sawed Off': '23',
-    UMP: '24',
-    W1200: '25',
-};
-export const arrayOfNumbersToFixed = (arr) => {
-    return arr.map((n) => {
-        if (isNaN(n)) {
-            // console.log('NAN', arr);
-            return n;
+export function encodeEncodedEvents(events) {
+    return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${events.join('|')}`;
+}
+export const decodeEncodedEvents = (combinedEvents) => {
+    const beginning = combinedEvents.slice(0, 2);
+    const check = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}`;
+    if (beginning !== check) {
+        throw new Error('Invalid data');
+    }
+    const rest = combinedEvents.slice(2);
+    if (!rest) {
+        throw new Error('Invalid data');
+    }
+    const events = rest.split('|');
+    const decodedEvents = [];
+    for (const event of events) {
+        const controlCode = event.slice(0, 2);
+        if (!controlCode) {
+            throw new Error('Control code not found');
         }
-        else {
-            return n.toFixed(0);
+        const decoder = decodeEventMap[controlCode];
+        if (!decoder) {
+            throw new Error('Decoder not found');
         }
-    });
+        const data = event.slice(2);
+        if (!data) {
+            throw new Error('Data not found');
+        }
+        decodedEvents.push(decoder(data));
+    }
+    return decodedEvents;
 };

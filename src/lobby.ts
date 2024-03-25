@@ -2,9 +2,14 @@ import { Player, Laser, EntityTypes, SpawnableEntity } from "./gameObjects.js";
 import { GameMode, GameState } from "./gameState.js";
 import { BuyableItem, mapObject, skyOptions } from "./map.js";
 
-const roundStates = ['START', 'ONGOING', 'END'] as const;
+export enum RoundStates {
+  START = 'START',
+  ONGOING = 'ONGOING',
+  END = 'END'
+}
+
 type RoundData = {
-  state: (typeof roundStates)[number];
+  state: RoundStates;
   roundNumber: number;
 };
 

@@ -15,8 +15,10 @@
     "three": "^0.157.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.30",
     "@types/three": "^0.156.0",
     "tsc": "^2.0.4",
+    "tsx": "^4.7.1",
     "typescript": "^5.0.2"
   }
 }
