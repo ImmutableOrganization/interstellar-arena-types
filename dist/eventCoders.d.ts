@@ -1,3 +1,4 @@
+import { GameEvents } from "./events.js";
 import { RoundStates } from "./lobby.js";
 import { GameServerToClient } from "./socket.js";
 import { Vector3 } from "three";
@@ -32,11 +33,13 @@ export declare const encodeUserDisconnected: (data: Parameters<GameServerToClien
 export declare const encodeZombieAttack: (data: Parameters<GameServerToClient['game:zombieAttack']>['0']) => string;
 export declare const encodePointsUpdate: (data: Parameters<GameServerToClient['game:pointsUpdate']>['0']) => string;
 export declare const decodePlayerStatus: (value: string) => {
+    event: GameEvents;
     playerId: string;
     health: number;
     dead: boolean;
 };
 export declare const decodeCharacterMove: (data: string) => {
+    event: GameEvents;
     socketId: string;
     position: number[];
     rotation: number[];
@@ -44,6 +47,7 @@ export declare const decodeCharacterMove: (data: string) => {
     keysPressed: any;
 };
 export declare const decodeFireLaser: (value: string) => {
+    event: GameEvents;
     gun: "AK-47" | "AKMS" | "AK-101" | "M4 Rifle" | "M4 Carbine" | "M4 Commando" | "Browning HP" | "P226" | "G18" | "M9" | "Desert Eagle" | ".357 Magnum" | "44 Magnum" | "S&W Model 36" | "Model 29" | "Mossberg 590" | "W1200" | "Sawed Off" | "Remington 870" | "M24" | "L96A1" | "N2 SRS" | "MP5K" | "MP5" | "MP7" | "UMP";
     senderuuid: string;
     position: [number, number, number];
@@ -53,54 +57,69 @@ export declare const decodeFireLaser: (value: string) => {
     name: string;
 } | undefined;
 export declare const decodeFireLaserHit: (value: string) => {
+    event: GameEvents;
     hitPlayerID: string;
     hitPlayerHealth: number;
     laserShooterID: string;
 };
 export declare const decodeFireLaserHitZombie: (value: string) => {
+    event: GameEvents;
     laserShooterID: string;
     hitZombieID: string;
 };
 export declare const decodePlayerRespawn: (value: string) => {
+    event: GameEvents;
     playerId: string;
 };
 export declare const decodePlayerSwitchWeapon: (value: string) => {
+    event: GameEvents;
     playerId: string;
     gun: "AK-47" | "AKMS" | "AK-101" | "M4 Rifle" | "M4 Carbine" | "M4 Commando" | "Browning HP" | "P226" | "G18" | "M9" | "Desert Eagle" | ".357 Magnum" | "44 Magnum" | "S&W Model 36" | "Model 29" | "Mossberg 590" | "W1200" | "Sawed Off" | "Remington 870" | "M24" | "L96A1" | "N2 SRS" | "MP5K" | "MP5" | "MP7" | "UMP";
 };
 export declare const decodePlayerReloadWeaponFired: (value: string) => {
+    event: GameEvents;
     playerId: string;
 };
 export declare const decodePlayerReloadWeaponComplete: (value: string) => {
+    event: GameEvents;
     playerId: string;
     gunAmmo: number;
 };
 export declare const decodeGetEntitiesCallback: (value: string) => {
+    event: GameEvents;
     entities: any;
 };
 export declare const decodePlayerBuyItem: (value: string) => {
+    event: GameEvents;
     lobbyID: string;
     playerId: string;
     itemID: string;
 };
 export declare const decodeGameStarted: (value: string) => {
+    event: GameEvents;
     lobbyID: string;
 };
 export declare const decodeGameEnded: (value: string) => {
+    event: GameEvents;
     lobbyID: string;
 };
 export declare const decodeEntities: (value: string) => {
+    event: GameEvents;
     entities: any;
 };
 export declare const decodeZombieRoundUpdate: (value: string) => {
+    event: GameEvents;
     round: number;
 };
 export declare const decodeUserDisconnected: (value: string) => {
+    event: GameEvents;
     playerId: string;
 };
 export declare const decodeZombieAttack: (value: string) => {
+    event: GameEvents;
     zombie: any;
 };
 export declare const decodePointsUpdate: (value: string) => {
+    event: GameEvents;
     points: number;
 };

@@ -1,4 +1,4 @@
-import { SerializedGameEvents } from "./events.js";
+import { GameEvents, SerializedGameEvents } from "./events.js";
 import { RoundStates } from "./lobby.js";
 import { Vector3 } from "three";
 export const arrayOfNumbersToFixed = (arr) => {
@@ -120,6 +120,7 @@ export const encodePointsUpdate = (data) => {
 export const decodePlayerStatus = (value) => {
     const split = value.split('$');
     return {
+        event: GameEvents.PlayerStatus,
         playerId: split[0],
         health: parseInt(split[1]),
         dead: split[2] === 'true',
@@ -128,6 +129,7 @@ export const decodePlayerStatus = (value) => {
 export const decodeCharacterMove = (data) => {
     const split = data.split('$');
     return {
+        event: GameEvents.CharacterMove,
         socketId: split[0],
         position: split[1].split(',').map((n) => parseFloat(n)),
         rotation: split[2].split(',').map((n) => parseFloat(n)),
@@ -144,6 +146,7 @@ export const decodeFireLaser = (value) => {
     if (!gunOption)
         return;
     return {
+        event: GameEvents.FireLaser,
         gun: gunOption,
         senderuuid: split[1],
         position: split[2].split(',').map((n) => parseFloat(n)),
@@ -156,6 +159,7 @@ export const decodeFireLaser = (value) => {
 export const decodeFireLaserHit = (value) => {
     const split = value.split('$');
     return {
+        event: GameEvents.FireLaserHit,
         hitPlayerID: split[0],
         hitPlayerHealth: parseInt(split[1]),
         laserShooterID: split[2],
@@ -164,42 +168,49 @@ export const decodeFireLaserHit = (value) => {
 export const decodeFireLaserHitZombie = (value) => {
     const split = value.split('$');
     return {
+        event: GameEvents.FireLaserHitZombie,
         laserShooterID: split[0],
         hitZombieID: split[1],
     };
 };
 export const decodePlayerRespawn = (value) => {
     return {
+        event: GameEvents.PlayerRespawn,
         playerId: value,
     };
 };
 export const decodePlayerSwitchWeapon = (value) => {
     const split = value.split('$');
     return {
+        event: GameEvents.PlayerSwitchWeapon,
         playerId: split[0],
         gun: deserializeGunMap[split[1]],
     };
 };
 export const decodePlayerReloadWeaponFired = (value) => {
     return {
+        event: GameEvents.PlayerReloadWeaponFired,
         playerId: value,
     };
 };
 export const decodePlayerReloadWeaponComplete = (value) => {
     const split = value.split('$');
     return {
+        event: GameEvents.PlayerReloadWeaponComplete,
         playerId: split[0],
         gunAmmo: parseInt(split[1]),
     };
 };
 export const decodeGetEntitiesCallback = (value) => {
     return {
+        event: GameEvents.GetEntitiesCallback,
         entities: JSON.parse(value),
     };
 };
 export const decodePlayerBuyItem = (value) => {
     const split = value.split('$');
     return {
+        event: GameEvents.PlayerBuyItem,
         lobbyID: split[0],
         playerId: split[1],
         itemID: split[2],
@@ -207,36 +218,43 @@ export const decodePlayerBuyItem = (value) => {
 };
 export const decodeGameStarted = (value) => {
     return {
+        event: GameEvents.GameStarted,
         lobbyID: value,
     };
 };
 export const decodeGameEnded = (value) => {
     return {
+        event: GameEvents.GameEnded,
         lobbyID: value,
     };
 };
 export const decodeEntities = (value) => {
     return {
+        event: GameEvents.Entities,
         entities: JSON.parse(value),
     };
 };
 export const decodeZombieRoundUpdate = (value) => {
     return {
+        event: GameEvents.ZombieRoundUpdate,
         round: parseInt(value),
     };
 };
 export const decodeUserDisconnected = (value) => {
     return {
+        event: GameEvents.UserDisconnected,
         playerId: value,
     };
 };
 export const decodeZombieAttack = (value) => {
     return {
+        event: GameEvents.ZombieAttack,
         zombie: JSON.parse(value),
     };
 };
 export const decodePointsUpdate = (value) => {
     return {
+        event: GameEvents.PointsUpdate,
         points: parseInt(value),
     };
 };
