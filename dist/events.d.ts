@@ -1,5 +1,5 @@
 import { encodeFireLaser, encodeFireLaserHit, encodeFireLaserHitZombie, encodeCharacterMove, encodePlayerStatus, encodePlayerRespawn, encodePlayerSwitchWeapon, encodePlayerReloadWeaponFired, encodePlayerReloadWeaponComplete, encodeGetEntitiesCallback, encodePlayerBuyItem, encodeGameStarted, encodeGameEnded, encodeEntities, encodeZombieRoundUpdate, encodeUserDisconnected, encodeZombieAttack, encodePointsUpdate } from "./eventCoders.js";
-import { ServerToClient } from "./socket.js";
+import { GameServerToClient } from "./socket.js";
 export declare enum EventConstants {
     END_OF_EVENT = "|"
 }
@@ -90,11 +90,11 @@ export declare enum SerializedErrorEvents {
     Dead = "7"
 }
 export type SerializedEvent = SerializedGameEvents | SerializedLobbyEvents | SerializedErrorEvents;
-export declare const serializedEventMap: Record<keyof ServerToClient, string>;
+export declare const serializedEventMap: Record<keyof GameServerToClient, string>;
 export type SerializedTickEvent = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${string}`;
 type EncoderFunction = typeof encodeFireLaser | typeof encodeFireLaserHit | typeof encodeFireLaserHitZombie | typeof encodeCharacterMove | typeof encodePlayerStatus | typeof encodePlayerRespawn | typeof encodePlayerSwitchWeapon | typeof encodePlayerReloadWeaponFired | typeof encodePlayerReloadWeaponComplete | typeof encodeGetEntitiesCallback | typeof encodePlayerBuyItem | typeof encodeGameStarted | typeof encodeGameEnded | typeof encodeEntities | typeof encodeZombieRoundUpdate | typeof encodeUserDisconnected | typeof encodeZombieAttack | typeof encodePointsUpdate;
 export declare const encodeEventMap: Record<GameEvents, EncoderFunction>;
-export declare const encodeEvent: (event: keyof ServerToClient) => string;
+export declare const encodeEvent: (event: keyof GameServerToClient) => string;
 export declare function encodeEncodedEvents(events: SerializedEvent[]): SerializedTickEvent;
 export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) => ({
     gun: "AK-47" | "AKMS" | "AK-101" | "M4 Rifle" | "M4 Carbine" | "M4 Commando" | "Browning HP" | "P226" | "G18" | "M9" | "Desert Eagle" | ".357 Magnum" | "44 Magnum" | "S&W Model 36" | "Model 29" | "Mossberg 590" | "W1200" | "Sawed Off" | "Remington 870" | "M24" | "L96A1" | "N2 SRS" | "MP5K" | "MP5" | "MP7" | "UMP";

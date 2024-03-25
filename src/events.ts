@@ -1,5 +1,5 @@
 import { encodeFireLaser, encodeFireLaserHit, encodeFireLaserHitZombie, encodeCharacterMove, encodePlayerStatus, encodePlayerRespawn, encodePlayerSwitchWeapon, encodePlayerReloadWeaponFired, encodePlayerReloadWeaponComplete, encodeGetEntitiesCallback, encodePlayerBuyItem, encodeGameStarted, encodeGameEnded, encodeEntities, encodeZombieRoundUpdate, encodeUserDisconnected, encodeZombieAttack, encodePointsUpdate, decodeFireLaser, decodeCharacterMove, decodePlayerStatus, decodeFireLaserHit, decodeFireLaserHitZombie, decodePlayerRespawn, decodePlayerSwitchWeapon, decodePlayerReloadWeaponFired, decodePlayerReloadWeaponComplete, decodeGetEntitiesCallback, decodePlayerBuyItem, decodeGameStarted, decodeGameEnded, decodeEntities, decodeZombieRoundUpdate, decodeUserDisconnected, decodeZombieAttack, decodePointsUpdate } from "./eventCoders.js";
-import { ServerToClient } from "./socket.js";
+import { GameServerToClient } from "./socket.js";
 
 export enum EventConstants {
   END_OF_EVENT = '|',
@@ -101,7 +101,7 @@ export enum SerializedErrorEvents {
 
 export type SerializedEvent = SerializedGameEvents | SerializedLobbyEvents | SerializedErrorEvents;
 
-export const serializedEventMap: Record<keyof ServerToClient, string> = {
+export const serializedEventMap: Record<keyof GameServerToClient, string> = {
   'game:fireLaser': SerializedSocketEvents.Game + SerializedGameEvents.FireLaser,
   'game:fireLaserHit': SerializedSocketEvents.Game + SerializedGameEvents.FireLaserHit,
   'game:fireLaserHitZombie': SerializedSocketEvents.Game + SerializedGameEvents.FireLaserHitZombie,
@@ -120,19 +120,6 @@ export const serializedEventMap: Record<keyof ServerToClient, string> = {
   'game:playerStatus': SerializedSocketEvents.Game + SerializedGameEvents.PlayerStatus,
   'game:zombieAttack': SerializedSocketEvents.Game + SerializedGameEvents.ZombieAttack,
   'game:pointsUpdate': SerializedSocketEvents.Game + SerializedGameEvents.PointsUpdate,
-  'lobbies:createdLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.CreatedLobby,
-  'lobbies:joinedLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.JoinedLobby,
-  'lobbies:newPlayerJoinedLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.NewPlayerJoinedLobby,
-  'lobbies:leftLobby': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.LeftLobby,
-  'lobbies:getLobbiesCallback': SerializedSocketEvents.Lobbies + SerializedLobbyEvents.GetLobbiesCallback,
-  'error:lobbyIdAlreadyExists': SerializedSocketEvents.Error + SerializedErrorEvents.LobbyIdAlreadyExists,
-  'error:lobbyNotFound': SerializedSocketEvents.Error + SerializedErrorEvents.LobbyNotFound,
-  'error:playerNotInLobby': SerializedSocketEvents.Error + SerializedErrorEvents.PlayerNotInLobby,
-  'error:lobbyFull': SerializedSocketEvents.Error + SerializedErrorEvents.LobbyFull,
-  'error:playerInLobbyAlready': SerializedSocketEvents.Error + SerializedErrorEvents.PlayerInLobbyAlready,
-  'error:no lobby found': SerializedSocketEvents.Error + SerializedErrorEvents.NoLobbyFound,
-  'error:no player found': SerializedSocketEvents.Error + SerializedErrorEvents.NoPlayerFound,
-  'error:dead': SerializedSocketEvents.Error + SerializedErrorEvents.Dead,
 } as const;
 
 
@@ -186,7 +173,7 @@ export const encodeEventMap: Record<GameEvents, EncoderFunction> = {
   [GameEvents.PointsUpdate]: encodePointsUpdate,
 } as const;
 
-export const encodeEvent = (event: keyof ServerToClient) => {
+export const encodeEvent = (event: keyof GameServerToClient) => {
   return serializedEventMap[event];
 };
 

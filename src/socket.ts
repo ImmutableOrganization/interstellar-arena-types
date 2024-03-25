@@ -1,3 +1,4 @@
+import { SerializedTickEvent } from "events.js";
 import { SpawnableEntity, Laser } from "gameObjects.js";
 import { lobby } from "lobby.js";
 import { GunOption } from "userStats.js";
@@ -124,13 +125,14 @@ export type GameServerToClient = {
   'game:gameEnded': (lobbyID: string) => void;
   'game:getEntitiesCallback': (value: GetEntitiesCallbackParams) => void;
   'game:entities': (value: EntitiesParams) => void;
+  'game:userDisconnected': (socketID: string) => void;
 };
 
 export type ServerToClient = {
-  'game:userDisconnected': (socketID: string) => void;
+  
 } & LobbyServerToClient &
-  GameServerToClient &
 {
+  'game:tick': (data: SerializedTickEvent) => void;
   'error:lobbyIdAlreadyExists': () => void;
   'error:lobbyNotFound': () => void;
   'error:playerNotInLobby': () => void;
