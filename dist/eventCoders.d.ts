@@ -1,7 +1,7 @@
-import { RoundStates } from "lobby.js";
-import { ServerToClient } from "socket.js";
+import { RoundStates } from "./lobby.js";
+import { ServerToClient } from "./socket.js";
 import { Vector3 } from "three";
-import { GunOption } from "userStats.js";
+import { GunOption } from "./userStats.js";
 export declare const arrayOfNumbersToFixed: (arr: number[]) => (string | number)[];
 export declare const serializedGunMap: Record<GunOption, string>;
 export declare const deserializeGunMap: {

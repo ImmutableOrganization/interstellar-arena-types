@@ -1,8 +1,8 @@
-import { SerializedGameEvents } from "events.js";
-import { RoundStates } from "lobby.js";
-import { ServerToClient } from "socket.js";
+import { SerializedGameEvents } from "./events.js";
+import { RoundStates } from "./lobby.js";
+import { ServerToClient } from "./socket.js";
 import { Vector3 } from "three";
-import { GunOption } from "userStats.js";
+import { GunOption } from "./userStats.js";
 
 export const arrayOfNumbersToFixed = (arr: number[]) => {
     return arr.map((n) => {

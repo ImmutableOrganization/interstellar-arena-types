@@ -1,5 +1,5 @@
-import { SerializedGameEvents } from "events.js";
-import { RoundStates } from "lobby.js";
+import { SerializedGameEvents } from "./events.js";
+import { RoundStates } from "./lobby.js";
 import { Vector3 } from "three";
 export const arrayOfNumbersToFixed = (arr) => {
     return arr.map((n) => {

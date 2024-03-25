@@ -1,5 +1,5 @@
-import { encodeFireLaser, encodeFireLaserHit, encodeFireLaserHitZombie, encodeCharacterMove, encodePlayerStatus, encodePlayerRespawn, encodePlayerSwitchWeapon, encodePlayerReloadWeaponFired, encodePlayerReloadWeaponComplete, encodeGetEntitiesCallback, encodePlayerBuyItem, encodeGameStarted, encodeGameEnded, encodeEntities, encodeZombieRoundUpdate, encodeUserDisconnected, encodeZombieAttack, encodePointsUpdate } from "eventCoders.js";
-import { ServerToClient } from "socket.js";
+import { encodeFireLaser, encodeFireLaserHit, encodeFireLaserHitZombie, encodeCharacterMove, encodePlayerStatus, encodePlayerRespawn, encodePlayerSwitchWeapon, encodePlayerReloadWeaponFired, encodePlayerReloadWeaponComplete, encodeGetEntitiesCallback, encodePlayerBuyItem, encodeGameStarted, encodeGameEnded, encodeEntities, encodeZombieRoundUpdate, encodeUserDisconnected, encodeZombieAttack, encodePointsUpdate } from "./eventCoders.js";
+import { ServerToClient } from "./socket.js";
 export declare enum EventConstants {
     END_OF_EVENT = "|"
 }
