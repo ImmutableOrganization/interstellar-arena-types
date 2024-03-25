@@ -242,7 +242,7 @@ export type ServerToClient = {
     export type SerializedTickEvent = `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${string}`;
 
     export function combineEvents(events: SerializedEvent[]): SerializedTickEvent {
-      return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${combineEvents(events)}` as SerializedTickEvent;
+      return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${events.join('#')}` as SerializedTickEvent;
     }
 
     export const encodeFireLaser = (gun: GunOption, data: Parameters<ServerToClient['game:fireLaser']>['0']) => {
