@@ -130,7 +130,7 @@ type DecoderFunction = typeof decodeFireLaser | typeof decodeCharacterMove | typ
   | typeof decodePlayerRespawn | typeof decodePlayerSwitchWeapon | typeof decodePlayerReloadWeaponFired | typeof decodePlayerReloadWeaponComplete | typeof decodeGetEntitiesCallback | typeof decodePlayerBuyItem | typeof decodeGameStarted | typeof decodeGameEnded | typeof decodeEntities | typeof decodeZombieRoundUpdate | typeof decodeUserDisconnected | typeof decodeZombieAttack | typeof decodePointsUpdate;
 
 
-const decodeEventMap: Record<SerializedGameEvents, DecoderFunction> = {
+export const decodeEventMap: Record<SerializedGameEvents, DecoderFunction> = {
   [SerializedGameEvents.FireLaser]: decodeFireLaser,
   [SerializedGameEvents.PlayerStatus]: decodePlayerStatus,
   [SerializedGameEvents.CharacterMove]: decodeCharacterMove,

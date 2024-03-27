@@ -117,7 +117,7 @@ export const serializedEventMap = {
     'game:zombieAttack': SerializedSocketEvents.Game + SerializedGameEvents.ZombieAttack,
     'game:pointsUpdate': SerializedSocketEvents.Game + SerializedGameEvents.PointsUpdate,
 };
-const decodeEventMap = {
+export const decodeEventMap = {
     [SerializedGameEvents.FireLaser]: decodeFireLaser,
     [SerializedGameEvents.PlayerStatus]: decodePlayerStatus,
     [SerializedGameEvents.CharacterMove]: decodeCharacterMove,
