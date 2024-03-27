@@ -117,7 +117,7 @@ export declare const decodeUserDisconnected: (value: string) => {
 };
 export declare const decodeZombieAttack: (value: string) => {
     event: GameEvents;
-    zombie: any;
+    zombieID: string;
 };
 export declare const decodePointsUpdate: (value: string) => {
     event: GameEvents;

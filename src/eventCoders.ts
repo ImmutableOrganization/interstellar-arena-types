@@ -134,7 +134,7 @@ export const encodeUserDisconnected = (data: Parameters<GameServerToClient['game
 };
 
 export const encodeZombieAttack = (data: Parameters<GameServerToClient['game:zombieAttack']>['0']) => {
-    return `${SerializedGameEvents.ZombieAttack}${JSON.stringify(data.zombie)}`;
+    return `${SerializedGameEvents.ZombieAttack}${data.zombieID}`;
 };
 
 export const encodePointsUpdate = (data: Parameters<GameServerToClient['game:pointsUpdate']>['0']) => {
@@ -287,7 +287,7 @@ export const decodeUserDisconnected = (value: string) => {
 export const decodeZombieAttack = (value: string) => {
     return {
         event: GameEvents.ZombieAttack,
-        zombie: JSON.parse(value),
+        zombieID: value,
     };
 };
 

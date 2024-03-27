@@ -137,7 +137,7 @@ export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) 
     round: number;
 } | {
     event: GameEvents;
-    zombie: any;
+    zombieID: string;
 } | {
     event: GameEvents;
     points: number;

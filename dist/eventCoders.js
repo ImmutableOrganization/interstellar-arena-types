@@ -112,7 +112,7 @@ export const encodeUserDisconnected = (data) => {
     return `${SerializedGameEvents.UserDisconnected}${data}`;
 };
 export const encodeZombieAttack = (data) => {
-    return `${SerializedGameEvents.ZombieAttack}${JSON.stringify(data.zombie)}`;
+    return `${SerializedGameEvents.ZombieAttack}${data.zombieID}`;
 };
 export const encodePointsUpdate = (data) => {
     return `${SerializedGameEvents.PointsUpdate}${data.points}`;
@@ -249,7 +249,7 @@ export const decodeUserDisconnected = (value) => {
 export const decodeZombieAttack = (value) => {
     return {
         event: GameEvents.ZombieAttack,
-        zombie: JSON.parse(value),
+        zombieID: value,
     };
 };
 export const decodePointsUpdate = (value) => {

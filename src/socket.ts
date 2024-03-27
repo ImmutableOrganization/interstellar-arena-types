@@ -48,7 +48,7 @@ export type FireLaserParams = {
   playerId: string;
 };
 export type ZombieAttackParams = {
-  zombie: SpawnableEntity;
+  zombieID: string;
 };
 export type FireLaserHitZombieParams = {
   laserShooterID: string;
