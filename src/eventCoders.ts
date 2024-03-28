@@ -138,7 +138,7 @@ export const encodeZombieAttack = (data: Parameters<GameServerToClient['game:zom
 };
 
 export const encodePointsUpdate = (data: Parameters<GameServerToClient['game:pointsUpdate']>['0']) => {
-    return `${SerializedGameEvents.PointsUpdate}${data}`;
+    return `${SerializedGameEvents.PointsUpdate}${JSON.stringify(data)}`;
 };
 
 
