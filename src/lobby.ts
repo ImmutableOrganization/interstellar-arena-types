@@ -18,7 +18,7 @@ export type lobby = {
     players: Record<string, Player>;
     game: {
       gameMode: GameMode;
-      gameState: (typeof GameState)[number];
+      gameState: GameState;
       zombie: {
         points: Record<string, number>;
         roundData: RoundData;

@@ -1,3 +1,11 @@
-export declare const GameState: readonly ["Unset", "Lobby", "Match", "MatchEnd"];
-export declare const GameMode: readonly ["FFA", "TDM", "ZOMBIES"];
-export type GameMode = (typeof GameMode)[number];
+export declare enum GameState {
+    Unset = "Unset",
+    Lobby = "Lobby",
+    Match = "Match",
+    MatchEnd = "MatchEnd"
+}
+export declare enum GameMode {
+    FFA = "FFA",
+    TDM = "TDM",
+    ZOMBIES = "ZOMBIES"
+}

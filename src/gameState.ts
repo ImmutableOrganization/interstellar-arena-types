@@ -1,3 +1,11 @@
-export const GameState = ['Unset', 'Lobby', 'Match', 'MatchEnd'] as const;
-export const GameMode = ['FFA', 'TDM', 'ZOMBIES'] as const;
-export type GameMode = (typeof GameMode)[number];
+export enum GameState {
+    Unset = 'Unset',
+    Lobby = 'Lobby',
+    Match = 'Match',
+    MatchEnd = 'MatchEnd'
+}
+export enum GameMode {
+    FFA = 'FFA',
+    TDM = 'TDM',
+    ZOMBIES = 'ZOMBIES'
+}
