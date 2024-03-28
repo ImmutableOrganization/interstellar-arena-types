@@ -121,5 +121,5 @@ export declare const decodeZombieAttack: (value: string) => {
 };
 export declare const decodePointsUpdate: (value: string) => {
     event: GameEvents;
-    points: number;
+    points: Record<string, number>;
 };

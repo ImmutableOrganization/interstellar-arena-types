@@ -115,7 +115,7 @@ export const encodeZombieAttack = (data) => {
     return `${SerializedGameEvents.ZombieAttack}${data.zombieID}`;
 };
 export const encodePointsUpdate = (data) => {
-    return `${SerializedGameEvents.PointsUpdate}${data.points}`;
+    return `${SerializedGameEvents.PointsUpdate}${data}`;
 };
 export const decodePlayerStatus = (value) => {
     const split = value.split('$');
@@ -255,6 +255,6 @@ export const decodeZombieAttack = (value) => {
 export const decodePointsUpdate = (value) => {
     return {
         event: GameEvents.PointsUpdate,
-        points: parseInt(value),
+        points: JSON.parse(value),
     };
 };

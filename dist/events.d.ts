@@ -140,6 +140,6 @@ export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) 
     zombieID: string;
 } | {
     event: GameEvents;
-    points: number;
+    points: Record<string, number>;
 } | undefined)[];
 export {};
