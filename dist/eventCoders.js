@@ -103,6 +103,14 @@ export const encodeGameEnded = (data) => {
     return `${SerializedGameEvents.GameEnded}${data}`;
 };
 export const encodeEntities = (data) => {
+    data.added.forEach((entity) => {
+        entity.position = arrayOfNumbersToFixed(entity.position);
+        entity.rotation = arrayOfNumbersToFixed(entity.rotation);
+    });
+    Object.values(data.modified).forEach((entity) => {
+        entity.position = arrayOfNumbersToFixed(entity.position);
+        entity.rotation = arrayOfNumbersToFixed(entity.rotation);
+    });
     return `${SerializedGameEvents.Entities}${JSON.stringify(data)}`;
 };
 export const encodeZombieRoundUpdate = (data) => {

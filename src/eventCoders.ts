@@ -122,6 +122,14 @@ export const encodeGameEnded = (data: Parameters<GameServerToClient['game:gameEn
 };
 
 export const encodeEntities = (data: Parameters<GameServerToClient['game:entities']>['0']) => {
+    data.added.forEach((entity) => {
+        entity.position = arrayOfNumbersToFixed(entity.position) as [number, number, number];
+        entity.rotation = arrayOfNumbersToFixed(entity.rotation) as [number, number, number];
+    });
+    Object.values(data.modified).forEach((entity) => {
+        entity.position = arrayOfNumbersToFixed(entity.position) as [number, number, number];
+        entity.rotation = arrayOfNumbersToFixed(entity.rotation) as [number, number, number];
+    })
     return `${SerializedGameEvents.Entities}${JSON.stringify(data)}`;
 };
 

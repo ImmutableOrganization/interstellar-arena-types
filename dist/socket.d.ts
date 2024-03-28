@@ -93,9 +93,25 @@ export type GetEntitiesCallbackParams = {
     entities: lobby['entities'];
 };
 export type EntitiesParams = {
-    added: SpawnableEntity[];
+    added: {
+        spawning: boolean;
+        dead: boolean;
+        health: number;
+        id: string;
+        position: [number, number, number];
+        rotation: [number, number, number];
+        keysPressed: Record<string, boolean>;
+    }[];
     removed: string[];
-    modified: Record<string, Partial<SpawnableEntity>>;
+    modified: Record<string, {
+        spawning: boolean;
+        dead: boolean;
+        health: number;
+        id: string;
+        position: [number, number, number];
+        rotation: [number, number, number];
+        keysPressed: Record<string, boolean>;
+    }>;
 };
 export type ScoreBoardUpdateParams = {
     scoreBoard: lobby['scoreBoard'];
