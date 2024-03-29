@@ -80,7 +80,7 @@ export const encodeFireLaserHitZombie = (data: Parameters<GameServerToClient['ga
 };
 
 export const encodePlayerStatus = (data: Parameters<GameServerToClient['game:playerStatus']>['0']) => {
-    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health}$${serializedBoolMap(data.dead)}`;
+    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
 };
 
 export const encodeCharacterMove = (data: Parameters<GameServerToClient['game:characterMove']>['0']) => {
@@ -149,6 +149,7 @@ export const decodePlayerStatus = (value: string) => {
         playerId: split[0],
         health: parseInt(split[1]),
         dead: split[2] === 'true',
+        gun: deserializeGunMap[split[3] as keyof typeof deserializeGunMap] as GunOption,
     };
 };
 
@@ -266,7 +267,7 @@ export const decodeGameEnded = (value: string) => {
 export const decodeEntities = (value: string) => {
     return {
         event: GameEvents.Entities,
-        entities: JSON.parse(value),
+        entities: JSON.parse(value)
     };
 };
 

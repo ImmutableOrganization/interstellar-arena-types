@@ -73,7 +73,7 @@ export const encodeFireLaserHitZombie = (data) => {
     return `${SerializedGameEvents.FireLaserHitZombie}${data.laserShooterID}$${data.hitZombieID}`;
 };
 export const encodePlayerStatus = (data) => {
-    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health}$${serializedBoolMap(data.dead)}`;
+    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
 };
 export const encodeCharacterMove = (data) => {
     return `${SerializedGameEvents.CharacterMove}${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${JSON.stringify(data.keysPressed)}`;
@@ -124,6 +124,7 @@ export const decodePlayerStatus = (value) => {
         playerId: split[0],
         health: parseInt(split[1]),
         dead: split[2] === 'true',
+        gun: deserializeGunMap[split[3]],
     };
 };
 export const decodeCharacterMove = (data) => {
@@ -231,7 +232,7 @@ export const decodeGameEnded = (value) => {
 export const decodeEntities = (value) => {
     return {
         event: GameEvents.Entities,
-        entities: JSON.parse(value),
+        entities: JSON.parse(value)
     };
 };
 export const decodeZombieRoundUpdate = (value) => {

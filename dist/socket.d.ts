@@ -69,6 +69,7 @@ export type PlayerStatusParams = {
     playerId: string;
     health: number;
     dead: boolean;
+    gun: GunOption;
 };
 export type PlayerSwitchWeaponParams = {
     playerId: string;
