@@ -236,9 +236,11 @@ export const decodeEntities = (value) => {
     };
 };
 export const decodeZombieRoundUpdate = (value) => {
+    const split = value.split('$');
     return {
         event: GameEvents.ZombieRoundUpdate,
-        round: parseInt(value),
+        roundNumber: parseInt(split[0]),
+        state: deserializeRoundStateMap[split[1]],
     };
 };
 export const decodeUserDisconnected = (value) => {

@@ -134,7 +134,8 @@ export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) 
     lobbyID: string;
 } | {
     event: GameEvents;
-    round: number;
+    roundNumber: number;
+    state: import("lobby.js").RoundStates;
 } | {
     event: GameEvents;
     zombieID: string;

@@ -110,7 +110,8 @@ export declare const decodeEntities: (value: string) => {
 };
 export declare const decodeZombieRoundUpdate: (value: string) => {
     event: GameEvents;
-    round: number;
+    roundNumber: number;
+    state: RoundStates;
 };
 export declare const decodeUserDisconnected: (value: string) => {
     event: GameEvents;

@@ -272,9 +272,11 @@ export const decodeEntities = (value: string) => {
 };
 
 export const decodeZombieRoundUpdate = (value: string) => {
+    const split = value.split('$');
     return {
         event: GameEvents.ZombieRoundUpdate,
-        round: parseInt(value),
+        roundNumber: parseInt(split[0]),
+        state: deserializeRoundStateMap[split[1] as keyof typeof deserializeRoundStateMap] as RoundStates,
     };
 };
 
