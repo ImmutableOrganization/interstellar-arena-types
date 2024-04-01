@@ -106,7 +106,7 @@ export const encodeEntities = (data) => {
     return `${SerializedGameEvents.Entities}${JSON.stringify(data)}`;
 };
 export const encodeZombieRoundUpdate = (data) => {
-    return `${SerializedGameEvents.ZombieRoundUpdate}${data.roundNumber}${serializedRoundStateMap[data.state]}`;
+    return `${SerializedGameEvents.ZombieRoundUpdate}${data.roundNumber}$${serializedRoundStateMap[data.state]}`;
 };
 export const encodeUserDisconnected = (data) => {
     return `${SerializedGameEvents.UserDisconnected}${data}`;

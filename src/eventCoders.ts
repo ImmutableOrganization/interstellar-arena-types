@@ -126,7 +126,7 @@ export const encodeEntities = (data: Parameters<GameServerToClient['game:entitie
 };
 
 export const encodeZombieRoundUpdate = (data: Parameters<GameServerToClient['game:zombieRoundUpdate']>['0']) => {
-    return `${SerializedGameEvents.ZombieRoundUpdate}${data.roundNumber}${serializedRoundStateMap[data.state]}`;
+    return `${SerializedGameEvents.ZombieRoundUpdate}${data.roundNumber}$${serializedRoundStateMap[data.state]}`;
 };
 
 export const encodeUserDisconnected = (data: Parameters<GameServerToClient['game:userDisconnected']>['0']) => {
