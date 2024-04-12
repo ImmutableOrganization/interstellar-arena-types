@@ -14,6 +14,7 @@ export declare const serializedRoundStateMap: Record<RoundStates, string>;
 export declare const deserializeRoundStateMap: {
     [k: string]: string;
 };
+export declare const encodeKeysPressedMap: (keysPressed: Record<string, boolean>) => string[];
 export declare const encodeFireLaser: (gun: GunOption, data: Parameters<GameServerToClient['game:fireLaser']>['0']) => string;
 export declare const encodeFireLaserHit: (data: Parameters<GameServerToClient['game:fireLaserHit']>['0']) => string;
 export declare const encodeFireLaserHitZombie: (data: Parameters<GameServerToClient['game:fireLaserHitZombie']>['0']) => string;
@@ -45,7 +46,9 @@ export declare const decodeCharacterMove: (data: string) => {
     position: number[];
     rotation: number[];
     cameraRotation: number[];
-    keysPressed: any;
+    keysPressed: {
+        [k: string]: boolean;
+    };
 };
 export declare const decodeFireLaser: (value: string) => {
     event: GameEvents;

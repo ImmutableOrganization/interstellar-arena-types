@@ -113,7 +113,9 @@ export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) 
     position: number[];
     rotation: number[];
     cameraRotation: number[];
-    keysPressed: any;
+    keysPressed: {
+        [k: string]: boolean;
+    };
 } | {
     event: GameEvents;
     hitPlayerID: string;

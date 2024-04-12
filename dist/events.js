@@ -161,6 +161,7 @@ export const encodeEvent = (event) => {
     return serializedEventMap[event];
 };
 export function encodeEncodedEvents(events) {
+    events.sort((a, b) => a.localeCompare(b));
     return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${events.join('|')}`;
 }
 export const decodeEncodedEvents = (combinedEvents) => {

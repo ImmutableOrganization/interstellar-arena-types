@@ -66,13 +66,26 @@ export const serializedRoundStateMap: Record<RoundStates, string> = {
 export const deserializeRoundStateMap = Object.fromEntries(Object.entries(serializedRoundStateMap).map(([k, v]) => [v, k]));
 
 
+export const encodeKeysPressedMap = (keysPressed: Record<string, boolean>) => {
+    return Object.entries(keysPressed).map(([k, v]) => {
+        return `${k}:${v ? '1' : '0'}`;
+    });
+}
+const decodeKeysPressedMap = (keysPressed: string) => {
+    return Object.fromEntries(keysPressed.split(',').map((k) => {
+        const [key, value] = k.split(':');
+        return [key, value === '1'];
+    }));
+}    
+
+
 export const encodeFireLaser = (gun: GunOption, data: Parameters<GameServerToClient['game:fireLaser']>['0']) => {
     const start = data.start.toArray() as number[];
     return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
 };
 
 export const encodeFireLaserHit = (data: Parameters<GameServerToClient['game:fireLaserHit']>['0']) => {
-    return `${SerializedGameEvents.FireLaserHit}${data.hitPlayerID}$${data.hitPlayerHealth}$${data.laserShooterID}`;
+    return `${SerializedGameEvents.FireLaserHit}${data.hitPlayerID}$${data.hitPlayerHealth.toFixed(0)}$${data.laserShooterID}`;
 };
 
 export const encodeFireLaserHitZombie = (data: Parameters<GameServerToClient['game:fireLaserHitZombie']>['0']) => {
@@ -80,13 +93,13 @@ export const encodeFireLaserHitZombie = (data: Parameters<GameServerToClient['ga
 };
 
 export const encodePlayerStatus = (data: Parameters<GameServerToClient['game:playerStatus']>['0']) => {
-    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
+    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health.toFixed(0)}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
 };
 
 export const encodeCharacterMove = (data: Parameters<GameServerToClient['game:characterMove']>['0']) => {
     return `${SerializedGameEvents.CharacterMove}${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(
         data.cameraRotation,
-    ).join(',')}$${JSON.stringify(data.keysPressed)}`;
+    ).join(',')}$${encodeKeysPressedMap(data.keysPressed).join(',')}`;
 };
 
 export const encodePlayerRespawn = (data: Parameters<GameServerToClient['game:playerRespawn']>['0']) => {
@@ -161,7 +174,7 @@ export const decodeCharacterMove = (data: string) => {
         position: split[1].split(',').map((n) => parseFloat(n)),
         rotation: split[2].split(',').map((n) => parseFloat(n)),
         cameraRotation: split[3].split(',').map((n) => parseFloat(n)),
-        keysPressed: JSON.parse(split[4]),
+        keysPressed: decodeKeysPressedMap(split[4]),
     };
 };
 

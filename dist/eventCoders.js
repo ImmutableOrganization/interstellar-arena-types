@@ -62,21 +62,32 @@ export const serializedRoundStateMap = {
     [RoundStates.END]: '2',
 };
 export const deserializeRoundStateMap = Object.fromEntries(Object.entries(serializedRoundStateMap).map(([k, v]) => [v, k]));
+export const encodeKeysPressedMap = (keysPressed) => {
+    return Object.entries(keysPressed).map(([k, v]) => {
+        return `${k}:${v ? '1' : '0'}`;
+    });
+};
+const decodeKeysPressedMap = (keysPressed) => {
+    return Object.fromEntries(keysPressed.split(',').map((k) => {
+        const [key, value] = k.split(':');
+        return [key, value === '1'];
+    }));
+};
 export const encodeFireLaser = (gun, data) => {
     const start = data.start.toArray();
     return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
 };
 export const encodeFireLaserHit = (data) => {
-    return `${SerializedGameEvents.FireLaserHit}${data.hitPlayerID}$${data.hitPlayerHealth}$${data.laserShooterID}`;
+    return `${SerializedGameEvents.FireLaserHit}${data.hitPlayerID}$${data.hitPlayerHealth.toFixed(0)}$${data.laserShooterID}`;
 };
 export const encodeFireLaserHitZombie = (data) => {
     return `${SerializedGameEvents.FireLaserHitZombie}${data.laserShooterID}$${data.hitZombieID}`;
 };
 export const encodePlayerStatus = (data) => {
-    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
+    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health.toFixed(0)}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
 };
 export const encodeCharacterMove = (data) => {
-    return `${SerializedGameEvents.CharacterMove}${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${JSON.stringify(data.keysPressed)}`;
+    return `${SerializedGameEvents.CharacterMove}${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${encodeKeysPressedMap(data.keysPressed).join(',')}`;
 };
 export const encodePlayerRespawn = (data) => {
     return `${SerializedGameEvents.PlayerRespawn}${data.playerId}$${data.killedBy}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${serializedBoolMap(data.dead)}`;
@@ -135,7 +146,7 @@ export const decodeCharacterMove = (data) => {
         position: split[1].split(',').map((n) => parseFloat(n)),
         rotation: split[2].split(',').map((n) => parseFloat(n)),
         cameraRotation: split[3].split(',').map((n) => parseFloat(n)),
-        keysPressed: JSON.parse(split[4]),
+        keysPressed: decodeKeysPressedMap(split[4]),
     };
 };
 export const decodeFireLaser = (value) => {

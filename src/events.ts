@@ -178,6 +178,7 @@ export const encodeEvent = (event: keyof GameServerToClient) => {
 };
 
 export function encodeEncodedEvents(events: SerializedEvent[]): SerializedTickEvent {
+  events.sort((a, b) => a.localeCompare(b));
   return `${SerializedSocketEvents.Tick}${EventConstants.END_OF_EVENT}${events.join('|')}` as SerializedTickEvent;
 }
 
