@@ -12,11 +12,16 @@
   },
   "type": "module",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
     "three": "^0.157.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
     "@types/three": "^0.156.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
     "tsc": "^2.0.4",
     "tsx": "^4.7.1",
     "typescript": "^5.0.2"

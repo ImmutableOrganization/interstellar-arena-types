@@ -14,7 +14,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "allowSyntheticDefaultImports": true,
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "noUncheckedIndexedAccess": true
   },
   "include": [
     "./src/**/*.ts",

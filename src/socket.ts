@@ -149,6 +149,7 @@ export type ServerToClient = {
   
 } & LobbyServerToClient &
 {
+  'game:decodeSocketID': (encodedSocketID: string) => void;
   'game:tick': (data: SerializedTickEvent) => void;
   'error:lobbyIdAlreadyExists': () => void;
   'error:lobbyNotFound': () => void;

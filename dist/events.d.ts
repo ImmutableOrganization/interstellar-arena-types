@@ -101,7 +101,7 @@ export declare function encodeEncodedEvents(events: SerializedEvent[]): Serializ
 export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) => ({
     event: GameEvents;
     gun: "AK-47" | "AKMS" | "AK-101" | "M4 Rifle" | "M4 Carbine" | "M4 Commando" | "Browning HP" | "P226" | "G18" | "M9" | "Desert Eagle" | ".357 Magnum" | "44 Magnum" | "S&W Model 36" | "Model 29" | "Mossberg 590" | "W1200" | "Sawed Off" | "Remington 870" | "M24" | "L96A1" | "N2 SRS" | "MP5K" | "MP5" | "MP7" | "UMP";
-    senderuuid: string;
+    senderuuid: string | undefined;
     position: [number, number, number];
     rotation: [number, number, number];
     start: import("three").Vector3;
@@ -109,28 +109,39 @@ export declare const decodeEncodedEvents: (combinedEvents: SerializedTickEvent) 
     name: string;
 } | {
     event: GameEvents;
-    socketId: string;
+    socketId: string | undefined;
     position: number[];
     rotation: number[];
     cameraRotation: number[];
-    keysPressed: {
-        [k: string]: boolean;
-    };
+    keysPressed: any;
 } | {
     event: GameEvents;
-    hitPlayerID: string;
+    hitPlayerID: string | undefined;
     hitPlayerHealth: number;
-    laserShooterID: string;
+    laserShooterID: string | undefined;
 } | {
     event: GameEvents;
-    laserShooterID: string;
-    hitZombieID: string;
+    laserShooterID: string | undefined;
+    hitZombieID: string | undefined;
 } | {
     event: GameEvents;
     playerId: string;
 } | {
     event: GameEvents;
+    playerId: string | undefined;
+    gun: "AK-47" | "AKMS" | "AK-101" | "M4 Rifle" | "M4 Carbine" | "M4 Commando" | "Browning HP" | "P226" | "G18" | "M9" | "Desert Eagle" | ".357 Magnum" | "44 Magnum" | "S&W Model 36" | "Model 29" | "Mossberg 590" | "W1200" | "Sawed Off" | "Remington 870" | "M24" | "L96A1" | "N2 SRS" | "MP5K" | "MP5" | "MP7" | "UMP";
+} | {
+    event: GameEvents;
+    playerId: string | undefined;
+    gunAmmo: number;
+} | {
+    event: GameEvents;
     entities: any;
+} | {
+    event: GameEvents;
+    lobbyID: string | undefined;
+    playerId: string | undefined;
+    itemID: string | undefined;
 } | {
     event: GameEvents;
     lobbyID: string;
