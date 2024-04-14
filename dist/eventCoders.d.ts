@@ -3,7 +3,7 @@ import { RoundStates } from './lobby.js';
 import { GameServerToClient } from './socket.js';
 import { Vector3 } from 'three';
 import { GunOption } from './userStats.js';
-export type EncodedPlayerIds = Record<string, string>;
+export type EncodedPlayerIds = string[];
 export declare const arrayOfNumbersToFixed: (arr: number[]) => (string | number)[];
 export declare const serializedGunMap: Record<GunOption, string>;
 export declare const deserializeGunMap: {

@@ -4,7 +4,7 @@ import { GameServerToClient } from './socket.js';
 import { Vector3 } from 'three';
 import { GunOption } from './userStats.js';
 
-export type EncodedPlayerIds = Record<string, string>;
+export type EncodedPlayerIds = string[];
 
 export const arrayOfNumbersToFixed = (arr: number[]) => {
   return arr.map((n) => {
