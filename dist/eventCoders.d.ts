@@ -18,7 +18,7 @@ export declare const deserializeRoundStateMap: {
     [k: string]: string;
 };
 export declare const encodeKeysPressedMap: (keysPressed: Record<string, boolean>) => string[];
-export declare const encodeFireLaser: (gun: GunOption, encodedPlayerIds: EncodedPlayerIds, data: Parameters<GameServerToClient['game:fireLaser']>['0']) => string;
+export declare const encodeFireLaser: (encodedPlayerIds: EncodedPlayerIds, gun: GunOption, data: Parameters<GameServerToClient['game:fireLaser']>['0']) => string;
 export declare const encodeFireLaserHit: (encodedPlayerIds: EncodedPlayerIds, data: Parameters<GameServerToClient['game:fireLaserHit']>['0']) => string;
 export declare const encodeFireLaserHitZombie: (data: Parameters<GameServerToClient['game:fireLaserHitZombie']>['0']) => string;
 export declare const encodePlayerStatus: (encodedPlayerIds: EncodedPlayerIds, data: Parameters<GameServerToClient['game:playerStatus']>['0']) => string;

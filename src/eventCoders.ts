@@ -107,8 +107,8 @@ const decodeKeysPressedMap = (keysPressed: string) => {
 };
 
 export const encodeFireLaser = (
-  gun: GunOption,
   encodedPlayerIds: EncodedPlayerIds,
+  gun: GunOption,
   data: Parameters<GameServerToClient['game:fireLaser']>['0'],
 ) => {
   const start = data.start.toArray() as number[];

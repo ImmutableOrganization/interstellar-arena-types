@@ -92,7 +92,7 @@ const decodeKeysPressedMap = (keysPressed) => {
         return [key, value === '1'];
     }));
 };
-export const encodeFireLaser = (gun, encodedPlayerIds, data) => {
+export const encodeFireLaser = (encodedPlayerIds, gun, data) => {
     const start = data.start.toArray();
     return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${encodePlayerID(data.senderuuid, encodedPlayerIds)}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
 };
