@@ -4,27 +4,7 @@ import { GameServerToClient } from './socket.js';
 import { Vector3 } from 'three';
 import { GunOption } from './userStats.js';
 
-type EncodedPlayerIds = Record<string, string>;
-
-export const encodePlayerID = (playerID: string, encodedPlayerIds: EncodedPlayerIds) => {
-  const playerIDs = Object.keys(encodedPlayerIds);
-  let encodedPlayerID = playerIDs.find((v) => v === playerID);
-  if (encodedPlayerID === undefined) {
-    encodedPlayerID = Object.keys(encodedPlayerIds).length.toString();
-    encodedPlayerIds[encodedPlayerID] = playerID;
-    return playerID;
-  }
-  return playerID;
-};
-
-export const decodePlayerID = (encodedPlayerID: string, encodedPlayerIds: EncodedPlayerIds) => {
-  const playerID = encodedPlayerIds[encodedPlayerID];
-  if (playerID) {
-    return playerID;
-  } else {
-    return encodedPlayerID; //no op
-  }
-};
+export type EncodedPlayerIds = Record<string, string>;
 
 export const arrayOfNumbersToFixed = (arr: number[]) => {
   return arr.map((n) => {
@@ -107,19 +87,17 @@ const decodeKeysPressedMap = (keysPressed: string) => {
 };
 
 export const encodeFireLaser = (
-  encodedPlayerIds: EncodedPlayerIds,
   gun: GunOption,
   data: Parameters<GameServerToClient['game:fireLaser']>['0'],
 ) => {
   const start = data.start.toArray() as number[];
-  return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${encodePlayerID(data.senderuuid, encodedPlayerIds)}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
+  return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
 };
 
 export const encodeFireLaserHit = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:fireLaserHit']>['0'],
 ) => {
-  return `${SerializedGameEvents.FireLaserHit}${encodePlayerID(data.hitPlayerID, encodedPlayerIds)}$${data.hitPlayerHealth.toFixed(0)}$${encodePlayerID(data.laserShooterID, encodedPlayerIds)}`;
+  return `${SerializedGameEvents.FireLaserHit}${data.hitPlayerID}$${data.hitPlayerHealth.toFixed(0)}$${data.laserShooterID}`;
 };
 
 export const encodeFireLaserHitZombie = (
@@ -129,47 +107,41 @@ export const encodeFireLaserHitZombie = (
 };
 
 export const encodePlayerStatus = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:playerStatus']>['0'],
 ) => {
-  return `${SerializedGameEvents.PlayerStatus}${encodePlayerID(data.playerId, encodedPlayerIds)}$${data.health.toFixed(0)}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
+  return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health.toFixed(0)}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
 };
 
 export const encodeCharacterMove = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:characterMove']>['0'],
 ) => {
-  return `${SerializedGameEvents.CharacterMove}${encodePlayerID(data.socketId, encodedPlayerIds)}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(
+  return `${SerializedGameEvents.CharacterMove}${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(
     data.cameraRotation,
   ).join(',')}$${encodeKeysPressedMap(data.keysPressed).join(',')}`;
 };
 
 export const encodePlayerRespawn = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:playerRespawn']>['0'],
 ) => {
-  return `${SerializedGameEvents.PlayerRespawn}${encodePlayerID(data.playerId, encodedPlayerIds)}$${encodePlayerID(data.killedBy, encodedPlayerIds)}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${serializedBoolMap(data.dead)}`;
+  return `${SerializedGameEvents.PlayerRespawn}${data.playerId}$${data.killedBy}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${serializedBoolMap(data.dead)}`;
 };
 
 export const encodePlayerSwitchWeapon = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:playerSwitchWeapon']>['0'],
 ) => {
-  return `${SerializedGameEvents.PlayerSwitchWeapon}${encodePlayerID(data.playerId, encodedPlayerIds)}$${serializedGunMap[data.gun]}`;
+  return `${SerializedGameEvents.PlayerSwitchWeapon}${data.playerId}$${serializedGunMap[data.gun]}`;
 };
 
 export const encodePlayerReloadWeaponFired = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:playerReloadWeaponFired']>['0'],
 ) => {
-  return `${SerializedGameEvents.PlayerReloadWeaponFired}${encodePlayerID(data.playerId, encodedPlayerIds)}`;
+  return `${SerializedGameEvents.PlayerReloadWeaponFired}${data.playerId}`;
 };
 
 export const encodePlayerReloadWeaponComplete = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:playerReloadWeaponComplete']>['0'],
 ) => {
-  return `${SerializedGameEvents.PlayerReloadWeaponComplete}${encodePlayerID(data.playerId, encodedPlayerIds)}$${data.gunAmmo}`;
+  return `${SerializedGameEvents.PlayerReloadWeaponComplete}${data.playerId}$${data.gunAmmo}`;
 };
 
 export const encodeGetEntitiesCallback = (
@@ -179,10 +151,9 @@ export const encodeGetEntitiesCallback = (
 };
 
 export const encodePlayerBuyItem = (
-  encodedPlayerIds: EncodedPlayerIds,
   data: Parameters<GameServerToClient['game:playerBuyItem']>['0'],
 ) => {
-  return `${SerializedGameEvents.PlayerBuyItem}${encodePlayerID(data.playerId, encodedPlayerIds)}$${serializedGunMap[data.item]}$${data.points}`;
+  return `${SerializedGameEvents.PlayerBuyItem}${data.playerId}$${serializedGunMap[data.item]}$${data.points}`;
 };
 
 export const encodeGameStarted = (

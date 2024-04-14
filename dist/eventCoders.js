@@ -1,25 +1,6 @@
 import { GameEvents, SerializedGameEvents } from './events.js';
 import { RoundStates } from './lobby.js';
 import { Vector3 } from 'three';
-export const encodePlayerID = (playerID, encodedPlayerIds) => {
-    const playerIDs = Object.keys(encodedPlayerIds);
-    let encodedPlayerID = playerIDs.find((v) => v === playerID);
-    if (encodedPlayerID === undefined) {
-        encodedPlayerID = Object.keys(encodedPlayerIds).length.toString();
-        encodedPlayerIds[encodedPlayerID] = playerID;
-        return playerID;
-    }
-    return playerID;
-};
-export const decodePlayerID = (encodedPlayerID, encodedPlayerIds) => {
-    const playerID = encodedPlayerIds[encodedPlayerID];
-    if (playerID) {
-        return playerID;
-    }
-    else {
-        return encodedPlayerID; //no op
-    }
-};
 export const arrayOfNumbersToFixed = (arr) => {
     return arr.map((n) => {
         if (isNaN(n)) {
@@ -92,39 +73,39 @@ const decodeKeysPressedMap = (keysPressed) => {
         return [key, value === '1'];
     }));
 };
-export const encodeFireLaser = (encodedPlayerIds, gun, data) => {
+export const encodeFireLaser = (gun, data) => {
     const start = data.start.toArray();
-    return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${encodePlayerID(data.senderuuid, encodedPlayerIds)}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
+    return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
 };
-export const encodeFireLaserHit = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.FireLaserHit}${encodePlayerID(data.hitPlayerID, encodedPlayerIds)}$${data.hitPlayerHealth.toFixed(0)}$${encodePlayerID(data.laserShooterID, encodedPlayerIds)}`;
+export const encodeFireLaserHit = (data) => {
+    return `${SerializedGameEvents.FireLaserHit}${data.hitPlayerID}$${data.hitPlayerHealth.toFixed(0)}$${data.laserShooterID}`;
 };
 export const encodeFireLaserHitZombie = (data) => {
     return `${SerializedGameEvents.FireLaserHitZombie}${data.laserShooterID}$${data.hitZombieID}`;
 };
-export const encodePlayerStatus = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.PlayerStatus}${encodePlayerID(data.playerId, encodedPlayerIds)}$${data.health.toFixed(0)}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
+export const encodePlayerStatus = (data) => {
+    return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health.toFixed(0)}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
 };
-export const encodeCharacterMove = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.CharacterMove}${encodePlayerID(data.socketId, encodedPlayerIds)}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${encodeKeysPressedMap(data.keysPressed).join(',')}`;
+export const encodeCharacterMove = (data) => {
+    return `${SerializedGameEvents.CharacterMove}${data.socketId}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${encodeKeysPressedMap(data.keysPressed).join(',')}`;
 };
-export const encodePlayerRespawn = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.PlayerRespawn}${encodePlayerID(data.playerId, encodedPlayerIds)}$${encodePlayerID(data.killedBy, encodedPlayerIds)}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${serializedBoolMap(data.dead)}`;
+export const encodePlayerRespawn = (data) => {
+    return `${SerializedGameEvents.PlayerRespawn}${data.playerId}$${data.killedBy}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(data.cameraRotation).join(',')}$${serializedBoolMap(data.dead)}`;
 };
-export const encodePlayerSwitchWeapon = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.PlayerSwitchWeapon}${encodePlayerID(data.playerId, encodedPlayerIds)}$${serializedGunMap[data.gun]}`;
+export const encodePlayerSwitchWeapon = (data) => {
+    return `${SerializedGameEvents.PlayerSwitchWeapon}${data.playerId}$${serializedGunMap[data.gun]}`;
 };
-export const encodePlayerReloadWeaponFired = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.PlayerReloadWeaponFired}${encodePlayerID(data.playerId, encodedPlayerIds)}`;
+export const encodePlayerReloadWeaponFired = (data) => {
+    return `${SerializedGameEvents.PlayerReloadWeaponFired}${data.playerId}`;
 };
-export const encodePlayerReloadWeaponComplete = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.PlayerReloadWeaponComplete}${encodePlayerID(data.playerId, encodedPlayerIds)}$${data.gunAmmo}`;
+export const encodePlayerReloadWeaponComplete = (data) => {
+    return `${SerializedGameEvents.PlayerReloadWeaponComplete}${data.playerId}$${data.gunAmmo}`;
 };
 export const encodeGetEntitiesCallback = (data) => {
     return `${SerializedGameEvents.GetEntitiesCallback}${JSON.stringify(data.entities)}`;
 };
-export const encodePlayerBuyItem = (encodedPlayerIds, data) => {
-    return `${SerializedGameEvents.PlayerBuyItem}${encodePlayerID(data.playerId, encodedPlayerIds)}$${serializedGunMap[data.item]}$${data.points}`;
+export const encodePlayerBuyItem = (data) => {
+    return `${SerializedGameEvents.PlayerBuyItem}${data.playerId}$${serializedGunMap[data.item]}$${data.points}`;
 };
 export const encodeGameStarted = (data) => {
     return `${SerializedGameEvents.GameStarted}${data}`;
