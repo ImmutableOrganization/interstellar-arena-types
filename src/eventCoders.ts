@@ -16,6 +16,9 @@ export const arrayOfNumbersToFixed = (arr: number[]) => {
   });
 };
 
+step 1 archive everyting
+step 2 delete all shit
+
 export const serializedGunMap: Record<GunOption, string> = {
   '.357 Magnum': '00',
   '44 Magnum': '01',
@@ -93,7 +96,6 @@ export const encodeFireLaser = (
   const start = data.start.toArray() as number[];
   return `${SerializedGameEvents.FireLaser}${serializedGunMap[gun]}$${data.senderuuid}$${arrayOfNumbersToFixed(data.position).join(',')}$${arrayOfNumbersToFixed(data.rotation).join(',')}$${arrayOfNumbersToFixed(start).join(',')}$${arrayOfNumbersToFixed(data.hitPoint.toArray()).join(',')}`;
 };
-
 export const encodeFireLaserHit = (
   data: Parameters<GameServerToClient['game:fireLaserHit']>['0'],
 ) => {
