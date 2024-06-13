@@ -1,62 +1,33 @@
-import { Player, Laser, EntityTypes, SpawnableEntity } from "./gameObjects.js";
-import { GameMode, GameState } from "./gameState.js";
-import { BuyableItem, mapObject, skyOptions } from "./map.js";
-
-export enum RoundStates {
-  START = 'START',
-  ONGOING = 'ONGOING',
-  END = 'END'
-}
-
-type RoundData = {
-  state: RoundStates;
-  roundNumber: number;
-};
+import { Player, Laser } from './gameObjects.js';
+import { GameState } from './gameState.js';
 
 export type lobby = {
-    id: string;
-    players: Record<string, Player>;
-    game: {
-      gameMode: GameMode;
-      gameState: GameState;
-      zombie: {
-        points: Record<string, number>;
-        roundData: RoundData;
+  id: string;
+  players: Record<string, Player>;
+  game: {
+    gameState: GameState;
+    arena: {
+      winCondition: number;
+    };
+    duration: {
+      match: {
+        startTime: number;
+        endTime: number;
       };
-      arena:{
-        winCondition: number;
-      }
-      duration: {
-        match: {
-          startTime: number;
-          endTime: number;
-        };
-        lobby: {
-          startTime: number;
-          endTime: number;
-        };
+      lobby: {
+        startTime: number;
+        endTime: number;
       };
     };
-    map: {
-      mapData: Record<mapObject['type'], (mapObject | BuyableItem)[]>;
-      mapName: string;
-      mapSky: (typeof skyOptions)[number];
-      navigationMatrix?: number[][];
-    };
-    entities: Record<EntityTypes, SpawnableEntity[]>;
-    lasers: Laser[];
-    scoreBoard: ScoreBoard;
-    hasBots: boolean;
-    maxPlayers: number;
-    isCustomMatch: boolean;
-    creatorSocketID: string;
   };
+  lasers: Laser[];
+  scoreBoard: ScoreBoard;
+};
 
-  
 export type ScoreBoard = Record<
-string,
-{
-  kills: number;
-  deaths: number;
-}
+  string,
+  {
+    kills: number;
+    deaths: number;
+  }
 >;
