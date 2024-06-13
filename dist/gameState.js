@@ -5,9 +5,3 @@ export var GameState;
     GameState["Match"] = "Match";
     GameState["MatchEnd"] = "MatchEnd";
 })(GameState || (GameState = {}));
-export var GameMode;
-(function (GameMode) {
-    GameMode["FFA"] = "FFA";
-    GameMode["TDM"] = "TDM";
-    GameMode["ZOMBIES"] = "ZOMBIES";
-})(GameMode || (GameMode = {}));

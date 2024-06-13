@@ -1,5 +1,4 @@
 import { GameEvents } from './events.js';
-import { RoundStates } from './lobby.js';
 import { GameServerToClient } from './socket.js';
 import { Vector3 } from 'three';
 import { GunOption } from './userStats.js';
@@ -11,29 +10,18 @@ export declare const deserializeGunMap: {
 };
 export declare const serializedBoolMap: (value: true | false) => "0" | "1";
 export declare const deserializeBoolMap: (value: string) => boolean;
-export declare const serializedRoundStateMap: Record<RoundStates, string>;
-export declare const deserializeRoundStateMap: {
-    [k: string]: string;
-};
 export declare const encodeKeysPressedMap: (keysPressed: Record<string, boolean>) => string[];
 export declare const encodeFireLaser: (gun: GunOption, data: Parameters<GameServerToClient['game:fireLaser']>['0']) => string;
 export declare const encodeFireLaserHit: (data: Parameters<GameServerToClient['game:fireLaserHit']>['0']) => string;
-export declare const encodeFireLaserHitZombie: (data: Parameters<GameServerToClient['game:fireLaserHitZombie']>['0']) => string;
 export declare const encodePlayerStatus: (data: Parameters<GameServerToClient['game:playerStatus']>['0']) => string;
 export declare const encodeCharacterMove: (data: Parameters<GameServerToClient['game:characterMove']>['0']) => string;
 export declare const encodePlayerRespawn: (data: Parameters<GameServerToClient['game:playerRespawn']>['0']) => string;
 export declare const encodePlayerSwitchWeapon: (data: Parameters<GameServerToClient['game:playerSwitchWeapon']>['0']) => string;
 export declare const encodePlayerReloadWeaponFired: (data: Parameters<GameServerToClient['game:playerReloadWeaponFired']>['0']) => string;
 export declare const encodePlayerReloadWeaponComplete: (data: Parameters<GameServerToClient['game:playerReloadWeaponComplete']>['0']) => string;
-export declare const encodeGetEntitiesCallback: (data: Parameters<GameServerToClient['game:getEntitiesCallback']>['0']) => string;
-export declare const encodePlayerBuyItem: (data: Parameters<GameServerToClient['game:playerBuyItem']>['0']) => string;
 export declare const encodeGameStarted: (data: Parameters<GameServerToClient['game:gameStarted']>['0']) => string;
 export declare const encodeGameEnded: (data: Parameters<GameServerToClient['game:gameEnded']>['0']) => string;
-export declare const encodeEntities: (data: Parameters<GameServerToClient['game:entities']>['0']) => string;
-export declare const encodeZombieRoundUpdate: (data: Parameters<GameServerToClient['game:zombieRoundUpdate']>['0']) => string;
 export declare const encodeUserDisconnected: (data: Parameters<GameServerToClient['game:userDisconnected']>['0']) => string;
-export declare const encodeZombieAttack: (data: Parameters<GameServerToClient['game:zombieAttack']>['0']) => string;
-export declare const encodePointsUpdate: (data: Parameters<GameServerToClient['game:pointsUpdate']>['0']) => string;
 export declare const decodePlayerStatus: (value: string) => {
     event: GameEvents;
     playerId: string | undefined;
@@ -65,11 +53,6 @@ export declare const decodeFireLaserHit: (value: string) => {
     hitPlayerHealth: number;
     laserShooterID: string | undefined;
 };
-export declare const decodeFireLaserHitZombie: (value: string) => {
-    event: GameEvents;
-    laserShooterID: string | undefined;
-    hitZombieID: string | undefined;
-};
 export declare const decodePlayerRespawn: (value: string) => {
     event: GameEvents;
     playerId: string;
@@ -88,16 +71,6 @@ export declare const decodePlayerReloadWeaponComplete: (value: string) => {
     playerId: string | undefined;
     gunAmmo: number;
 };
-export declare const decodeGetEntitiesCallback: (value: string) => {
-    event: GameEvents;
-    entities: any;
-};
-export declare const decodePlayerBuyItem: (value: string) => {
-    event: GameEvents;
-    lobbyID: string | undefined;
-    playerId: string | undefined;
-    itemID: string | undefined;
-};
 export declare const decodeGameStarted: (value: string) => {
     event: GameEvents;
     lobbyID: string;
@@ -106,24 +79,7 @@ export declare const decodeGameEnded: (value: string) => {
     event: GameEvents;
     lobbyID: string;
 };
-export declare const decodeEntities: (value: string) => {
-    event: GameEvents;
-    entities: any;
-};
-export declare const decodeZombieRoundUpdate: (value: string) => {
-    event: GameEvents;
-    roundNumber: number;
-    state: RoundStates;
-};
 export declare const decodeUserDisconnected: (value: string) => {
     event: GameEvents;
     playerId: string;
-};
-export declare const decodeZombieAttack: (value: string) => {
-    event: GameEvents;
-    zombieID: string;
-};
-export declare const decodePointsUpdate: (value: string) => {
-    event: GameEvents;
-    points: Record<string, number>;
 };

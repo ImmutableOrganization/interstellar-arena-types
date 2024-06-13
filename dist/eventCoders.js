@@ -1,5 +1,4 @@
 import { GameEvents, SerializedGameEvents } from './events.js';
-import { RoundStates } from './lobby.js';
 import { Vector3 } from 'three';
 export const arrayOfNumbersToFixed = (arr) => {
     return arr.map((n) => {
@@ -56,12 +55,6 @@ export const deserializeBoolMap = (value) => {
         return false;
     }
 };
-export const serializedRoundStateMap = {
-    [RoundStates.START]: '0',
-    [RoundStates.ONGOING]: '1',
-    [RoundStates.END]: '2',
-};
-export const deserializeRoundStateMap = Object.fromEntries(Object.entries(serializedRoundStateMap).map(([k, v]) => [v, k]));
 export const encodeKeysPressedMap = (keysPressed) => {
     return Object.entries(keysPressed).map(([k, v]) => {
         return `${k}:${v ? '1' : '0'}`;
@@ -79,9 +72,6 @@ export const encodeFireLaser = (gun, data) => {
 };
 export const encodeFireLaserHit = (data) => {
     return `${SerializedGameEvents.FireLaserHit}${data.hitPlayerID}$${data.hitPlayerHealth.toFixed(0)}$${data.laserShooterID}`;
-};
-export const encodeFireLaserHitZombie = (data) => {
-    return `${SerializedGameEvents.FireLaserHitZombie}${data.laserShooterID}$${data.hitZombieID}`;
 };
 export const encodePlayerStatus = (data) => {
     return `${SerializedGameEvents.PlayerStatus}${data.playerId}$${data.health.toFixed(0)}$${serializedBoolMap(data.dead)}$${serializedGunMap[data.gun]}`;
@@ -101,32 +91,14 @@ export const encodePlayerReloadWeaponFired = (data) => {
 export const encodePlayerReloadWeaponComplete = (data) => {
     return `${SerializedGameEvents.PlayerReloadWeaponComplete}${data.playerId}$${data.gunAmmo}`;
 };
-export const encodeGetEntitiesCallback = (data) => {
-    return `${SerializedGameEvents.GetEntitiesCallback}${JSON.stringify(data.entities)}`;
-};
-export const encodePlayerBuyItem = (data) => {
-    return `${SerializedGameEvents.PlayerBuyItem}${data.playerId}$${serializedGunMap[data.item]}$${data.points}`;
-};
 export const encodeGameStarted = (data) => {
     return `${SerializedGameEvents.GameStarted}${data}`;
 };
 export const encodeGameEnded = (data) => {
     return `${SerializedGameEvents.GameEnded}${data}`;
 };
-export const encodeEntities = (data) => {
-    return `${SerializedGameEvents.Entities}${JSON.stringify(data)}`;
-};
-export const encodeZombieRoundUpdate = (data) => {
-    return `${SerializedGameEvents.ZombieRoundUpdate}${data.roundNumber}$${serializedRoundStateMap[data.state]}`;
-};
 export const encodeUserDisconnected = (data) => {
     return `${SerializedGameEvents.UserDisconnected}${data}`;
-};
-export const encodeZombieAttack = (data) => {
-    return `${SerializedGameEvents.ZombieAttack}${data.zombieID}`;
-};
-export const encodePointsUpdate = (data) => {
-    return `${SerializedGameEvents.PointsUpdate}${JSON.stringify(data)}`;
 };
 export const decodePlayerStatus = (value) => {
     const split = value.split('$');
@@ -177,14 +149,6 @@ export const decodeFireLaserHit = (value) => {
         laserShooterID: split[2],
     };
 };
-export const decodeFireLaserHitZombie = (value) => {
-    const split = value.split('$');
-    return {
-        event: GameEvents.FireLaserHitZombie,
-        laserShooterID: split[0],
-        hitZombieID: split[1],
-    };
-};
 export const decodePlayerRespawn = (value) => {
     return {
         event: GameEvents.PlayerRespawn,
@@ -213,21 +177,6 @@ export const decodePlayerReloadWeaponComplete = (value) => {
         gunAmmo: parseInt(split[1] ?? ''),
     };
 };
-export const decodeGetEntitiesCallback = (value) => {
-    return {
-        event: GameEvents.GetEntitiesCallback,
-        entities: JSON.parse(value),
-    };
-};
-export const decodePlayerBuyItem = (value) => {
-    const split = value.split('$');
-    return {
-        event: GameEvents.PlayerBuyItem,
-        lobbyID: split[0],
-        playerId: split[1],
-        itemID: split[2],
-    };
-};
 export const decodeGameStarted = (value) => {
     return {
         event: GameEvents.GameStarted,
@@ -240,35 +189,9 @@ export const decodeGameEnded = (value) => {
         lobbyID: value,
     };
 };
-export const decodeEntities = (value) => {
-    return {
-        event: GameEvents.Entities,
-        entities: JSON.parse(value),
-    };
-};
-export const decodeZombieRoundUpdate = (value) => {
-    const split = value.split('$');
-    return {
-        event: GameEvents.ZombieRoundUpdate,
-        roundNumber: parseInt(split[0] ?? ''),
-        state: deserializeRoundStateMap[split[1]],
-    };
-};
 export const decodeUserDisconnected = (value) => {
     return {
         event: GameEvents.UserDisconnected,
         playerId: value,
-    };
-};
-export const decodeZombieAttack = (value) => {
-    return {
-        event: GameEvents.ZombieAttack,
-        zombieID: value,
-    };
-};
-export const decodePointsUpdate = (value) => {
-    return {
-        event: GameEvents.PointsUpdate,
-        points: JSON.parse(value),
     };
 };
